@@ -13,6 +13,11 @@
 /.next/
 /out/
 
+# Cache Files
+.eslintjscache
+.stylelintcache
+.prettiercache
+
 # production
 /build
 
