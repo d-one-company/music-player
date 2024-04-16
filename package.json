@@ -2,6 +2,9 @@
   "name": "music-player",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v20"
+  },
   "scripts": {
     "dev": "cross-env NODE_NO_WARNINGS=1 next dev --turbo",
     "build": "cross-env NODE_NO_WARNINGS=1 next build",
