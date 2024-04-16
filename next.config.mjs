@@ -1,3 +1,10 @@
+import { fileURLToPath } from 'url';
+import createJiti from 'jiti';
+
+const jiti = createJiti(fileURLToPath(import.meta.url));
+
+jiti('./env');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
