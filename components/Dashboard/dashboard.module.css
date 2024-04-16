@@ -1,0 +1,7 @@
+.scrollbar__sky::-webkit-scrollbar-thumb {
+  background-color: blue;
+}
+
+.scrollbar__sky::-webkit-scrollbar-thumb:hover {
+  background-color: red;
+}

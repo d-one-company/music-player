@@ -21,6 +21,16 @@ const nextConfig = {
     });
     return config;
   },
+  // ! Remove this when we actually get the images from the server.
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.*',
+        port: '',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

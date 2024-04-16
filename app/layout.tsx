@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <SessionWrapper>
-      <html lang="en">
+      <html lang="en" className="dark">
         <body className={inter.className}>{children}</body>
       </html>
     </SessionWrapper>
