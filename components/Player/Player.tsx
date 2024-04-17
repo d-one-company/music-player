@@ -4,7 +4,7 @@ import { generateFakeImage } from '@/lib/fakeData';
 import { useCurrentlyPlayingTrack } from '@/lib/hooks/useCurrentlyPlayingTrack';
 import { usePlayPause } from '@/lib/hooks/usePlayPause';
 import { useSkipToNextTrack } from '@/lib/hooks/useSkipToNextTrack';
-import { useSkipToPreviouseTrack } from '@/lib/hooks/useSkipToPreviousTrack';
+import { useSkipToPreviousTrack } from '@/lib/hooks/useSkipToPreviousTrack';
 import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -16,15 +16,17 @@ const Player = () => {
 
   const currentTrack = useCurrentlyPlayingTrack(trackChangeFlag);
   const skipToNextTrack = useSkipToNextTrack();
-  const skipToPreviousTrack = useSkipToPreviouseTrack();
+  const skipToPreviousTrack = useSkipToPreviousTrack();
   const { playPauseTrack, isPlaying } = usePlayPause();
 
-  const handeSkipToNextTrack = async () => {
+  const handleSkipToNextTrack = async () => {
     await skipToNextTrack();
+    setTrackChangeFlag(prev => !prev);
   };
 
   const handleSkipToPreviousTrack = async () => {
     await skipToPreviousTrack();
+    setTrackChangeFlag(prev => !prev);
   };
 
   if (!currentTrack) return null;
@@ -54,10 +56,7 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                onClick={() => {
-                  handleSkipToPreviousTrack();
-                  setTrackChangeFlag(!trackChangeFlag);
-                }}
+                onClick={handleSkipToPreviousTrack}
               >
                 <ArrowLeftToLine />
               </Button>
@@ -71,10 +70,7 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                onClick={() => {
-                  handeSkipToNextTrack();
-                  setTrackChangeFlag(!trackChangeFlag);
-                }}
+                onClick={handleSkipToNextTrack}
               >
                 <ArrowRightToLine />
               </Button>

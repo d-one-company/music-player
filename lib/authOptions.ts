@@ -5,7 +5,7 @@ import Spotify from 'next-auth/providers/spotify';
 export const authOptions: NextAuthOptions = {
   providers: [
     Spotify({
-      clientId: env.SPOTIFY_CLIENT_ID,
+      clientId: env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
       clientSecret: env.SPOTIFY_CLIENT_SECRET,
       authorization: {
         params: {

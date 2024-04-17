@@ -1,7 +1,6 @@
-import { env } from '@/env';
-import { AccessToken, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import { spotifyApiSetup } from '../helpers/spotifyApiSetup';
 
 export function usePlayPause() {
   const { data: session } = useSession();
@@ -9,21 +8,12 @@ export function usePlayPause() {
 
   useEffect(() => {
     const fetchPlaybackState = async () => {
-      if (session?.accessToken) {
-        const accessToken: AccessToken = {
-          access_token: session.accessToken,
-          expires_in: Number(session.expires),
-          refresh_token: '',
-          token_type: 'Bearer',
-        };
-
-        const spotifyApi = SpotifyApi.withAccessToken(
-          env.SPOTIFY_CLIENT_ID,
-          accessToken
-        );
-
+      if (session?.accessToken && session?.expires) {
+        const spotifyApi = spotifyApiSetup(session);
         try {
-          const currentPlayer = await spotifyApi.player.getPlaybackState();
+          const currentPlayer = await spotifyApi?.player.getPlaybackState();
+
+          if (!currentPlayer) return;
 
           setIsPlaying(currentPlayer.is_playing);
         } catch (error) {
@@ -31,44 +21,26 @@ export function usePlayPause() {
         }
       }
     };
-
     fetchPlaybackState();
-  }, [session?.accessToken, session?.expires]);
+  }, [session?.accessToken, session?.expires, session]);
 
   const playPauseTrack = async () => {
-    if (session?.accessToken) {
-      const accessToken: AccessToken = {
-        access_token: session.accessToken,
-        expires_in: Number(session.expires),
-        refresh_token: '',
-        token_type: 'Bearer',
-      };
-
-      const spotifyApi = SpotifyApi.withAccessToken(
-        env.SPOTIFY_CLIENT_ID,
-        accessToken
-      );
-
+    if (session?.accessToken && session?.expires) {
+      const spotifyApi = spotifyApiSetup(session);
       try {
-        const devices = await spotifyApi.player.getAvailableDevices();
-        const deviceId = devices.devices.find(device => device.is_active)?.id;
+        const devices = await spotifyApi?.player.getAvailableDevices();
+        const deviceId = devices?.devices.find(device => device.is_active)?.id;
 
         if (!deviceId) return;
 
-        const currentPlayer = await spotifyApi.player.getPlaybackState();
+        const currentPlayer = await spotifyApi?.player.getPlaybackState();
 
-        if (currentPlayer.is_playing) {
-          await spotifyApi.player.pausePlayback(deviceId);
-
+        if (currentPlayer?.is_playing) {
+          await spotifyApi?.player.pausePlayback(deviceId);
           setIsPlaying(false);
-
-          return;
         } else {
-          await spotifyApi.player.startResumePlayback(deviceId);
-
+          await spotifyApi?.player.startResumePlayback(deviceId);
           setIsPlaying(true);
-
-          return;
         }
       } catch (error) {
         console.error(error);
