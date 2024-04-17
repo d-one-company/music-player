@@ -3,9 +3,9 @@ import { useSession } from 'next-auth/react';
 import { env } from 'process';
 import { useEffect, useState } from 'react';
 
-export function useCurrentlyPlayingTrack() {
+export function useQueuedTracks() {
   const { data: session } = useSession();
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const [queuedTracks, setQueuedTracks] = useState<Track[] | null>(null);
 
   useEffect(() => {
     async function fetchCurrentlyPlaying(accessToken: AccessToken) {
@@ -15,8 +15,8 @@ export function useCurrentlyPlayingTrack() {
       );
 
       try {
-        const response = await spotifyApi.player.getCurrentlyPlayingTrack();
-        setCurrentTrack(response.item as Track);
+        const response = await spotifyApi.player.getUsersQueue();
+        setQueuedTracks(response.queue as Track[]);
       } catch (error) {
         console.error(error);
       }
@@ -34,5 +34,5 @@ export function useCurrentlyPlayingTrack() {
     }
   }, [session?.accessToken, session?.expires]);
 
-  return currentTrack;
+  return queuedTracks;
 }

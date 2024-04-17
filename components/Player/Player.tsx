@@ -2,7 +2,7 @@
 
 import { generateFakeImage } from '@/lib/fakeData';
 import { useCurrentlyPlayingTrack } from '@/lib/hooks/useCurrentlyPlayingTrack';
-import { ArrowLeftToLine, ArrowRightToLine, Play } from 'lucide-react';
+import { ArrowLeftToLine, ArrowRightToLine, Play, Pause } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
