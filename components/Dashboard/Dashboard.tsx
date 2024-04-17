@@ -11,10 +11,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { generateFakeImage, generateFakeTracks } from '@/lib/fakeData';
-import { cn } from '@/lib/utils';
+import { generateFakeImage } from '@/lib/fakeData';
 import Sidebar from '../Sidebar/Sidebar';
-import TrackItem from '../Track/TrackItem';
+import TrendingSongs from '../TrendingSongs/TrendingSongs';
 import UsersPlaylists from './UsersPlaylists';
 
 export function Dashboard() {
@@ -73,15 +72,7 @@ export function Dashboard() {
           </div>
           <div className="flex w-full flex-col space-y-2 ">
             <p className="text-lg font-semibold">Trending Right Now</p>
-            <div
-              className={cn(
-                'scrollbar-sky flex max-h-[300px] flex-col space-y-5 overflow-y-scroll'
-              )}
-            >
-              {generateFakeTracks({ count: 10 }).map(track => (
-                <TrackItem track={track} key={track.id} />
-              ))}
-            </div>
+            <TrendingSongs />
           </div>
         </main>
       </div>
