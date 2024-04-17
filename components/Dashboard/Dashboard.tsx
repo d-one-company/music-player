@@ -21,7 +21,7 @@ export function Dashboard() {
               <p className="text-lg font-semibold">Your Playlists</p>
               <UsersPlaylists />
             </div>
-            <div className="flex w-full flex-col space-y-2 ">
+            <div className="flex w-full flex-col space-y-2">
               <p className="text-lg font-semibold">Trending Right Now</p>
               <TrendingSongs />
             </div>
