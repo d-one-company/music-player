@@ -2,13 +2,32 @@
 
 import { generateFakeImage } from '@/lib/fakeData';
 import { useCurrentlyPlayingTrack } from '@/lib/hooks/useCurrentlyPlayingTrack';
-import { ArrowLeftToLine, ArrowRightToLine, Play } from 'lucide-react';
+import { usePlayPause } from '@/lib/hooks/usePlayPause';
+import { useSkipToNextTrack } from '@/lib/hooks/useSkipToNextTrack';
+import { useSkipToPreviousTrack } from '@/lib/hooks/useSkipToPreviousTrack';
+import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
 const Player = () => {
-  const currentTrack = useCurrentlyPlayingTrack();
+  const [trackChangeFlag, setTrackChangeFlag] = useState(false);
+
+  const currentTrack = useCurrentlyPlayingTrack(trackChangeFlag);
+  const skipToNextTrack = useSkipToNextTrack();
+  const skipToPreviousTrack = useSkipToPreviousTrack();
+  const { playPauseTrack, isPlaying } = usePlayPause();
+
+  const handleSkipToNextTrack = async () => {
+    await skipToNextTrack();
+    setTrackChangeFlag(prev => !prev);
+  };
+
+  const handleSkipToPreviousTrack = async () => {
+    await skipToPreviousTrack();
+    setTrackChangeFlag(prev => !prev);
+  };
 
   if (!currentTrack) return null;
 
@@ -37,18 +56,21 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={handleSkipToPreviousTrack}
               >
                 <ArrowLeftToLine />
               </Button>
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={playPauseTrack}
               >
-                <Play />
+                {isPlaying ? <Pause /> : <Play />}
               </Button>
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={handleSkipToNextTrack}
               >
                 <ArrowRightToLine />
               </Button>
