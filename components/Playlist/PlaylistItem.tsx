@@ -9,7 +9,7 @@ type PlaylistItemProps = {
 
 const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
   return (
-    <div className="relative h-32 w-48 shrink-0 rounded-md">
+    <div className="relative h-28 w-44 shrink-0 rounded-md">
       {playlist.images[0]?.url && (
         <Image
           fill

@@ -1,4 +1,5 @@
 import Profile from '../Profile/Profile';
+import RecentFavourites from '../RecentFavourites/RecentFavourites';
 import Search from '../Search/Search';
 import Sidebar from '../Sidebar/Sidebar';
 import TrendingTracks from '../TrendingSongs/TrendingSongs';
@@ -22,6 +23,7 @@ export function Dashboard() {
             <p className="text-lg font-semibold">Trending Right Now</p>
             <TrendingTracks />
           </div>
+          <RecentFavourites />
         </main>
       </div>
     </div>

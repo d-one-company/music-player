@@ -1,3 +1,4 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -7,13 +8,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { generateFakeImage } from '@/lib/fakeData';
-import { BellDot, ChevronDown } from 'lucide-react';
-import { getServerSession } from 'next-auth';
-import Image from 'next/image';
+import { getServerAuthSession } from '@/lib/auth';
+import { BellDot, ChevronDown, User } from 'lucide-react';
 
 const Profile = async () => {
-  const session = await getServerSession();
+  const session = await getServerAuthSession();
 
   return (
     <div className="flex items-center gap-2">
@@ -26,17 +25,19 @@ const Profile = async () => {
             variant="ghost"
             className="flex gap-2.5 overflow-hidden rounded-full px-3 py-4"
           >
-            <Image
-              src={
-                session?.user?.image ??
-                generateFakeImage({ width: 36, height: 36 })
-              }
-              width={36}
-              height={36}
-              alt="Avatar"
-              className="overflow-hidden rounded-full"
-            />
-            <span>{session?.user?.name ?? 'Alex'}</span>
+            <Avatar>
+              <AvatarImage
+                src={session?.user?.image || undefined}
+                width={36}
+                height={36}
+                alt="Avatar"
+                className="overflow-hidden rounded-full"
+              />
+              <AvatarFallback className="bg-muted/60 text-gray-500">
+                <User />
+              </AvatarFallback>
+            </Avatar>
+            <span>{session?.user?.name}</span>
             <ChevronDown />
           </Button>
         </DropdownMenuTrigger>
