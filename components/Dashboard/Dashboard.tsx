@@ -1,17 +1,5 @@
-import {
-  BellDot,
-  ChevronDown,
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  PanelLeft,
-  Search,
-  ShoppingCart,
-  Users2,
-} from 'lucide-react';
+import { BellDot, ChevronDown, Search } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -23,18 +11,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import {
-  generateFakeAlbums,
-  generateFakeImage,
-  generateFakeTracks,
-} from '@/lib/fakeData';
+import { generateFakeImage, generateFakeTracks } from '@/lib/fakeData';
 import { cn } from '@/lib/utils';
-import AlbumListItem from '../Album/AlbumListItem';
 import Sidebar from '../Sidebar/Sidebar';
 import TrackItem from '../Track/TrackItem';
-
-const tracks = generateFakeTracks({ count: 20 });
+import UsersPlaylists from './UsersPlaylists';
 
 export function Dashboard() {
   return (
@@ -87,12 +68,8 @@ export function Dashboard() {
         </header>
         <main className="ml-6 mt-4 flex grow flex-col space-y-10 md:max-w-[950px] 2xl:max-w-[1400px]">
           <div className="flex w-full flex-col space-y-2">
-            <p className="text-lg font-semibold">Recently Listened Albums</p>
-            <div className="flex w-full items-center gap-4 overflow-x-auto">
-              {generateFakeAlbums({ count: 10 }).map(album => (
-                <AlbumListItem key={album.id} album={album} />
-              ))}
-            </div>
+            <p className="text-lg font-semibold">Your Playlists</p>
+            <UsersPlaylists />
           </div>
           <div className="flex w-full flex-col space-y-2 ">
             <p className="text-lg font-semibold">Trending Right Now</p>
