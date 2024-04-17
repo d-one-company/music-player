@@ -9,8 +9,8 @@ const RecentFavouriteListItem = ({
   track: { track },
 }: RecentFavouriteListItemProps) => {
   return (
-    <div className="flex size-36 shrink-0 grow-0 flex-col space-y-1">
-      <div className="relative size-28">
+    <div className="flex size-28 shrink-0 grow-0 flex-col space-y-1">
+      <div className="relative size-24">
         <Image
           src={track.album.images[0].url}
           alt={track.name}
