@@ -1,6 +1,6 @@
+import { env } from '@/env';
 import { AccessToken, SpotifyApi, Track } from '@spotify/web-api-ts-sdk';
 import { useSession } from 'next-auth/react';
-import { env } from 'process';
 import { useEffect, useState } from 'react';
 
 export function useQueuedTracks() {
@@ -10,7 +10,7 @@ export function useQueuedTracks() {
   useEffect(() => {
     async function fetchCurrentlyPlaying(accessToken: AccessToken) {
       const spotifyApi = SpotifyApi.withAccessToken(
-        env.SPOTIFY_CLIENT_ID!,
+        env.SPOTIFY_CLIENT_ID,
         accessToken
       );
 
