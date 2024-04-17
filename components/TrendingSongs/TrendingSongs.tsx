@@ -12,9 +12,7 @@ const TrendingSongs = async () => {
 
   return (
     <div
-      className={cn(
-        'scrollbar-sky flex max-h-[300px] flex-col space-y-5 overflow-y-scroll'
-      )}
+      className="scrollbar-sky flex max-h-[300px] flex-col space-y-5 overflow-y-scroll"
     >
       {trendingSongs.tracks.items.map(track => (
         <TrackItem track={track} key={track.track.id} />
