@@ -23,16 +23,20 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, user, account }) {
       if (account?.access_token && account?.expires_at) {
         token.accessToken = account.access_token;
         token.accessTokenExpires = account.expires_at;
       }
 
+      if (user) token.spotifyUserId = user.id;
+
       return token;
     },
     async session({ session, token }) {
       session.accessToken = token.accessToken as string;
+      if (session.user)
+        session.user.spotifyUserId = token.spotifyUserId as string;
 
       return session;
     },
