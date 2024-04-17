@@ -1,0 +1,2 @@
+export const GLOBAL_TOP_50_PLAYLIST_ID =
+  '37i9dQZEVXbMDoHDwVN2tF?si=18e6ab1f9a6541a8&nd=1&dlsi=9c44c461677f477f';
