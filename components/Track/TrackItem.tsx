@@ -1,4 +1,4 @@
-import { PlaylistedTrack, Track } from '@spotify/web-api-ts-sdk';
+import type { PlaylistedTrack, Track } from '@spotify/web-api-ts-sdk';
 import Image from 'next/image';
 
 type TrackItemProps = {
@@ -13,8 +13,8 @@ const TrackItem = ({ track }: TrackItemProps) => {
         //todo: check URL
         src={track.track.album.images[0].url}
         alt={track.track.name}
-        width={65}
-        height={65}
+        width={55}
+        height={55}
       />
       <div className="flex w-[300px] flex-col">
         <p className="max-w-full truncate text-sm">{track.track.name}</p>

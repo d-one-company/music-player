@@ -1,4 +1,5 @@
 import Profile from '../Profile/Profile';
+import RecentFavourites from '../RecentFavourites/RecentFavourites';
 import Search from '../Search/Search';
 
 import Sidebar from '../Sidebar/Sidebar';
@@ -14,15 +15,18 @@ export function Dashboard() {
           <Search />
           <Profile />
         </header>
-        <main className="ml-6 mt-4 flex grow flex-col space-y-10 md:max-w-[950px] 2xl:max-w-[1400px]">
-          <div className="flex w-full flex-col space-y-2">
-            <p className="text-lg font-semibold">Your Playlists</p>
-            <UsersPlaylists />
+        <main className="ml-6 mt-4 flex grow flex-col md:max-w-[950px] 2xl:max-w-[1400px]">
+          <div className="flex flex-col space-y-10">
+            <div className="flex w-full flex-col space-y-2">
+              <p className="text-lg font-semibold">Your Playlists</p>
+              <UsersPlaylists />
+            </div>
+            <div className="flex w-full flex-col space-y-2 ">
+              <p className="text-lg font-semibold">Trending Right Now</p>
+              <TrendingSongs />
+            </div>
           </div>
-          <div className="flex w-full flex-col space-y-2 ">
-            <p className="text-lg font-semibold">Trending Right Now</p>
-            <TrendingSongs />
-          </div>
+          <RecentFavourites />
         </main>
       </div>
     </div>
