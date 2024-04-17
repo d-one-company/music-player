@@ -11,9 +11,7 @@ const TrendingSongs = async () => {
   );
 
   return (
-    <div
-      className="scrollbar-sky flex max-h-[300px] flex-col space-y-5 overflow-y-scroll"
-    >
+    <div className="scrollbar-sky flex max-h-[300px] flex-col space-y-5 overflow-y-scroll">
       {trendingSongs.tracks.items.map(track => (
         <TrackItem track={track} key={track.track.id} />
       ))}
