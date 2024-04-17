@@ -1,14 +1,8 @@
-import { generateFakeImage, generateFakeTracks } from '@/lib/fakeData';
-import {
-  ArrowLeftToLine,
-  ArrowRightToLine,
-  EllipsisVertical,
-  Play,
-  X,
-} from 'lucide-react';
+import { generateFakeTracks } from '@/lib/fakeData';
+import { EllipsisVertical, X } from 'lucide-react';
 import Image from 'next/image';
+import Player from '../Player/Player';
 import { Button } from '../ui/button';
-import { Slider } from '../ui/slider';
 
 const tracks = generateFakeTracks({ count: 20 });
 
@@ -56,51 +50,7 @@ const PlaylistBar = () => {
           ))}
         </div>
       </div>
-      <div className="relative mt-10 flex w-full h-64 items-end rounded-md">
-        <Image
-          fill
-          alt=""
-          className="rounded-md"
-          src={generateFakeImage({
-            width: 256,
-            height: 256,
-          })}
-        />
-        <div className="absolute flex h-[60%] w-full items-end px-2 pb-2 ">
-          <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">
-            <div className="flex flex-col justify-center space-y-2.5 py-4 text-center text-sm">
-              <div className="flex flex-col space-y-0.5">
-                <p>Za kare</p>
-                <p className="text-muted-foreground">SB Mafija</p>
-              </div>
-
-              <div className="flex items-center justify-center gap-8">
-                <Button
-                  variant="ghost"
-                  className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                >
-                  <ArrowLeftToLine />
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                >
-                  <Play />
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                >
-                  <ArrowRightToLine />
-                </Button>
-              </div>
-              <div className="px-4">
-                <Slider defaultValue={[60]} max={100} step={1} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Player />
     </div>
   );
 };
