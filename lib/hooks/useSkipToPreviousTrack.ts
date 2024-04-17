@@ -1,12 +1,12 @@
 import { useSession } from 'next-auth/react';
-import { spotifyApiSetup } from '../helpers/spotifyApiSetup';
+import { createSpotifyInstance } from '../helpers/createSpotifyInstance';
 
 export function useSkipToPreviousTrack() {
   const { data: session } = useSession();
 
   const skipToPreviousTrack = async () => {
     if (session?.accessToken && session?.expires) {
-      const spotifyApi = spotifyApiSetup(session);
+      const spotifyApi = createSpotifyInstance(session);
 
       try {
         const devices = await spotifyApi?.player.getAvailableDevices();

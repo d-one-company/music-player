@@ -1,7 +1,7 @@
 import { Track } from '@spotify/web-api-ts-sdk';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { spotifyApiSetup } from '../helpers/spotifyApiSetup';
+import { createSpotifyInstance } from '../helpers/createSpotifyInstance';
 
 export function useQueuedTracks() {
   const { data: session } = useSession();
@@ -10,7 +10,7 @@ export function useQueuedTracks() {
   useEffect(() => {
     async function fetchCurrentlyPlaying() {
       if (!session) return;
-      const spotifyApi = spotifyApiSetup(session);
+      const spotifyApi = createSpotifyInstance(session);
 
       try {
         const response = await spotifyApi?.player.getUsersQueue();

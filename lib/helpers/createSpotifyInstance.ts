@@ -9,7 +9,7 @@ interface AccessToken {
   token_type: 'Bearer';
 }
 
-export function spotifyApiSetup(session: Session) {
+export function createSpotifyInstance(session: Session) {
   if (session?.accessToken) {
     const accessToken: AccessToken = {
       access_token: session.accessToken,

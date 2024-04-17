@@ -1,6 +1,6 @@
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { spotifyApiSetup } from '../helpers/spotifyApiSetup';
+import { createSpotifyInstance } from '../helpers/createSpotifyInstance';
 
 export function usePlayPause() {
   const { data: session } = useSession();
@@ -9,7 +9,7 @@ export function usePlayPause() {
   useEffect(() => {
     const fetchPlaybackState = async () => {
       if (session?.accessToken && session?.expires) {
-        const spotifyApi = spotifyApiSetup(session);
+        const spotifyApi = createSpotifyInstance(session);
         try {
           const currentPlayer = await spotifyApi?.player.getPlaybackState();
 
@@ -26,7 +26,7 @@ export function usePlayPause() {
 
   const playPauseTrack = async () => {
     if (session?.accessToken && session?.expires) {
-      const spotifyApi = spotifyApiSetup(session);
+      const spotifyApi = createSpotifyInstance(session);
       try {
         const devices = await spotifyApi?.player.getAvailableDevices();
         const deviceId = devices?.devices.find(device => device.is_active)?.id;
