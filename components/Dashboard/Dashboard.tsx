@@ -1,8 +1,7 @@
 import Profile from '../Profile/Profile';
 import Search from '../Search/Search';
-
 import Sidebar from '../Sidebar/Sidebar';
-import TrendingSongs from '../TrendingSongs/TrendingSongs';
+import TrendingTracks from '../TrendingSongs/TrendingSongs';
 import UsersPlaylists from './UsersPlaylists';
 
 export function Dashboard() {
@@ -21,7 +20,7 @@ export function Dashboard() {
           </div>
           <div className="flex w-full flex-col space-y-2 ">
             <p className="text-lg font-semibold">Trending Right Now</p>
-            <TrendingSongs />
+            <TrendingTracks />
           </div>
         </main>
       </div>

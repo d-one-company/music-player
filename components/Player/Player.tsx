@@ -1,25 +1,25 @@
 'use client';
 
 import { generateFakeImage } from '@/lib/fakeData';
-import { useCurrentPlayingTrack } from '@/lib/hooks/getCurrentlyPlayingSong';
+import { useCurrentlyPlayingTrack } from '@/lib/hooks/useCurrentlyPlayingTrack';
 import { ArrowLeftToLine, ArrowRightToLine, Play } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
 const Player = () => {
-  const currentSong = useCurrentPlayingTrack();
+  const currentTrack = useCurrentlyPlayingTrack();
 
-  if (!currentSong) return null;
+  if (!currentTrack) return null;
 
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
       <Image
         fill
-        alt={currentSong.name}
+        alt={currentTrack.name}
         className="rounded-md"
         src={
-          currentSong.album.images[0].url ??
+          currentTrack.album.images[0].url ??
           generateFakeImage({ width: 256, height: 256 })
         }
       />
@@ -27,8 +27,10 @@ const Player = () => {
         <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">
           <div className="flex flex-col justify-center space-y-2.5 py-4 text-center text-sm">
             <div className="flex flex-col space-y-0.5">
-              <p>{currentSong.artists.map(artist => artist.name).join(', ')}</p>
-              <p className="text-muted-foreground">{currentSong.name}</p>
+              <p>
+                {currentTrack.artists.map(artist => artist.name).join(', ')}
+              </p>
+              <p className="text-muted-foreground">{currentTrack.name}</p>
             </div>
 
             <div className="flex items-center justify-center gap-8">

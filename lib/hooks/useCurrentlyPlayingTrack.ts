@@ -2,7 +2,7 @@ import { AccessToken, SpotifyApi, Track } from '@spotify/web-api-ts-sdk';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
-export function useCurrentPlayingTrack() {
+export function useCurrentlyPlayingTrack() {
   const { data: session } = useSession();
   const [currentSong, setCurrentSong] = useState<Track | null>(null);
 
