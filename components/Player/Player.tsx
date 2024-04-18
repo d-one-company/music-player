@@ -15,6 +15,8 @@ const Player = () => {
     currentTrack,
   } = usePlayerContext();
 
+  if (!currentTrack) return null;
+
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
       <Image
