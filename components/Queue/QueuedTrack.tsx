@@ -8,7 +8,7 @@ type Props = { track: Track };
 const QueuedTrack = ({ track }: Props) => {
   return (
     <div
-      className="flex max-w-full items-center justify-between border"
+      className="flex max-w-full items-center justify-between"
       key={track.id + 1}
     >
       <div className="flex gap-3">
