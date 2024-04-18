@@ -14,14 +14,13 @@ interface PlayerContextType {
   isPlaying: boolean;
   queuedTracks: Track[];
   setCurrentTrack: (track: Track) => void;
-  setIsPlaying: (isPlaying: boolean) => void;
   togglePlay: () => void;
   handlePlayNext: () => void;
   handlePlayPrev: () => void;
 }
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export function PlayerProvider({ children }: { children: ReactNode }) {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track>();
   const [queuedTracks, setQueuedTracks] = useState(tracks);
 
@@ -75,7 +74,6 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         isPlaying,
         queuedTracks,
         setCurrentTrack,
-        setIsPlaying,
         togglePlay,
         handlePlayNext,
         handlePlayPrev,
