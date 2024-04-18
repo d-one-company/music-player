@@ -12,10 +12,6 @@ const PlaylistBar = () => {
       >
         <X className="h-9 w-9 text-muted-foreground transition-colors group-hover:text-primary" />
       </Button>
-
-      <div className="flex w-full">
-        <p className="pb-2 text-left text-lg font-semibold">Queue</p>
-      </div>
       <Queue />
       <Player />
     </div>

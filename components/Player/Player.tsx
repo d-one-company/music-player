@@ -2,19 +2,25 @@
 
 import { generateFakeImage } from '@/lib/fakeData';
 import { useCurrentlyPlayingTrack } from '@/lib/hooks/useCurrentlyPlayingTrack';
+import { useLastPlayedTracks } from '@/lib/hooks/useLastPlayedTracks';
 import { usePlayPause } from '@/lib/hooks/usePlayPause';
 import { useSkipToNextTrack } from '@/lib/hooks/useSkipToNextTrack';
 import { useSkipToPreviousTrack } from '@/lib/hooks/useSkipToPreviousTrack';
+import { Track } from '@spotify/web-api-ts-sdk';
 import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
 const Player = () => {
+  const [playerTrack, setPlayerTrack] = useState<Track | null>();
+
   const [trackChangeFlag, setTrackChangeFlag] = useState(false);
 
   const currentTrack = useCurrentlyPlayingTrack(trackChangeFlag);
+  const lastPlayedTracks = useLastPlayedTracks();
+
   const skipToNextTrack = useSkipToNextTrack();
   const skipToPreviousTrack = useSkipToPreviousTrack();
   const { playPauseTrack, isPlaying } = usePlayPause();
@@ -29,16 +35,20 @@ const Player = () => {
     setTrackChangeFlag(prev => !prev);
   };
 
-  if (!currentTrack) return null;
+  useEffect(() => {
+    setPlayerTrack(currentTrack || lastPlayedTracks?.[0]);
+  }, [currentTrack, lastPlayedTracks]);
+
+  if (!playerTrack) return null;
 
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
       <Image
         fill
-        alt={currentTrack.name}
+        alt={playerTrack?.name ?? "Track's album cover"}
         className="rounded-md"
         src={
-          currentTrack.album.images[0].url ??
+          playerTrack?.album.images[0].url ??
           generateFakeImage({ width: 256, height: 256 })
         }
       />
@@ -47,9 +57,9 @@ const Player = () => {
           <div className="flex flex-col justify-center space-y-2.5 py-4 text-center text-sm">
             <div className="flex flex-col space-y-0.5">
               <p>
-                {currentTrack.artists.map(artist => artist.name).join(', ')}
+                {playerTrack?.artists.map(artist => artist.name).join(', ')}
               </p>
-              <p className="text-muted-foreground">{currentTrack.name}</p>
+              <p className="text-muted-foreground">{playerTrack?.name}</p>
             </div>
 
             <div className="flex items-center justify-center gap-8">

@@ -5,7 +5,7 @@ import { createSpotifyInstance } from '../helpers/createSpotifyInstance';
 
 export function useCurrentlyPlayingTrack(refetchDependency: boolean) {
   const { data: session } = useSession();
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const [currentTrack, setCurrentTrack] = useState<Track>();
 
   useEffect(() => {
     async function fetchCurrentlyPlaying() {
