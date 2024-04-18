@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Music Player',
-  description: 'Spotify Music Player Clone',
+  description: 'Music Playey',
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {

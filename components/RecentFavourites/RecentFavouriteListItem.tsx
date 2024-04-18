@@ -1,4 +1,4 @@
-import type { Track } from '@spotify/web-api-ts-sdk';
+import { Track } from '@/types/track';
 import Image from 'next/image';
 
 type RecentFavouriteListItemProps = { track: Track };
@@ -7,17 +7,10 @@ const RecentFavouriteListItem = ({ track }: RecentFavouriteListItemProps) => {
   return (
     <div className="flex size-28 shrink-0 grow-0 flex-col space-y-1">
       <div className="relative size-24">
-        <Image
-          src={track.album.images[0].url}
-          alt={track.name}
-          fill
-          className="rounded-md"
-        />
+        <Image src={track.img} alt={track.title} fill className="rounded-md" />
       </div>
-      <p className="truncate text-sm">{track.name}</p>
-      <p className="truncate text-xs text-muted-foreground">
-        {track.artists[0].name}
-      </p>
+      <p className="truncate text-sm">{track.title}</p>
+      <p className="truncate text-xs text-muted-foreground">{track.artist}</p>
     </div>
   );
 };

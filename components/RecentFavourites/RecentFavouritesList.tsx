@@ -1,9 +1,9 @@
 'use client';
-import { useRecentlySavedTracks } from '@/lib/hooks/useRecentlySavedTracks';
+import { generateFakeTracks } from '@/lib/fakeData';
 import RecentFavouriteListItem from './RecentFavouriteListItem';
 
 const RecentFavouritesList = () => {
-  const recentlySavedTracks = useRecentlySavedTracks();
+  const recentlySavedTracks = generateFakeTracks({ count: 10 });
 
   return (
     <div className="flex items-center gap-3 overflow-x-auto">
