@@ -1,7 +1,7 @@
 'use client';
 
 import { usePlayerContext } from '@/providers/PlayerContext';
-import { Track } from '@/types/track';
+import { Track } from '@/types';
 import Image from 'next/image';
 
 type Props = { track: Track };
@@ -16,8 +16,8 @@ const TrackItem = ({ track }: Props) => {
       onClick={() => setCurrentTrack(track)}
     >
       <Image
-        className="shrink-0 grow-0 rounded-md"
-        src={track.img}
+        className="aspect-square rounded-md bg-contain"
+        src={track.image}
         alt={track.title}
         width={55}
         height={55}

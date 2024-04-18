@@ -21,7 +21,7 @@ const Player = () => {
         fill
         alt={currentTrack?.title}
         className="rounded-md"
-        src={currentTrack?.img}
+        src={currentTrack?.image}
       />
       <div className="absolute flex h-[60%] w-full items-end px-2 pb-2 ">
         <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">

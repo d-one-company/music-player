@@ -1,7 +1,7 @@
 'use client';
 
 import { generateFakeTracks } from '@/lib/fakeData';
-import { Track } from '@/types/track';
+import { Track } from '@/types';
 import { ReactNode, createContext, useContext, useState } from 'react';
 
 interface PlayerContextType {
