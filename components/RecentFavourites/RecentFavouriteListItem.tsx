@@ -1,13 +1,9 @@
-import type { PlaylistedTrack, Track } from '@spotify/web-api-ts-sdk';
+import type { Track } from '@spotify/web-api-ts-sdk';
 import Image from 'next/image';
 
-type RecentFavouriteListItemProps = {
-  track: PlaylistedTrack<Track>;
-};
+type RecentFavouriteListItemProps = { track: Track };
 
-const RecentFavouriteListItem = ({
-  track: { track },
-}: RecentFavouriteListItemProps) => {
+const RecentFavouriteListItem = ({ track }: RecentFavouriteListItemProps) => {
   return (
     <div className="flex size-28 shrink-0 grow-0 flex-col space-y-1">
       <div className="relative size-24">

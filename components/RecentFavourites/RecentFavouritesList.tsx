@@ -1,13 +1,14 @@
-import { getTrendingTracks } from '@/lib/queries';
+'use client';
+import { useRecentlySavedTracks } from '@/lib/hooks/useRecentlySavedTracks';
 import RecentFavouriteListItem from './RecentFavouriteListItem';
 
-const RecentFavouritesList = async () => {
-  const trendingTracks = await getTrendingTracks();
+const RecentFavouritesList = () => {
+  const recentlySavedTracks = useRecentlySavedTracks();
 
   return (
     <div className="flex items-center gap-3 overflow-x-auto">
-      {trendingTracks.tracks.items.map(track => (
-        <RecentFavouriteListItem key={track.track.id} track={track} />
+      {recentlySavedTracks?.map(track => (
+        <RecentFavouriteListItem key={track.id} track={track} />
       ))}
     </div>
   );
