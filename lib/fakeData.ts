@@ -5,15 +5,15 @@ export function generateFakeTracks({ count = 10 }: { count?: number }) {
     id: i + 1,
     title: faker.music.songName(),
     artist: faker.person.firstName(),
-    img: faker.image.url({ width: 65, height: 65 }),
-    duration: generateFakeSongDuration(),
+    duration: generateFakeTrackDuration(),
+    url: faker.internet.url(),
+    image: faker.image.url({ width: 256, height: 256 }),
   }));
 }
 
-const generateFakeSongDuration = () => {
-  const minutes = faker.number.int({ min: 0, max: 5 }); // Assuming songs last between 0 and 5 minutes
+const generateFakeTrackDuration = () => {
+  const minutes = faker.number.int({ min: 0, max: 5 });
   const seconds = faker.number.int({ min: 0, max: 59 });
-  // Formatting the minute and second values to always show two digits
   return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 };
 

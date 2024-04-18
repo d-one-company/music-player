@@ -1,13 +1,19 @@
 'use client';
 
-import { ArrowLeftToLine, ArrowRightToLine, Play } from 'lucide-react';
+import { usePlayerContext } from '@/providers/PlayerContext';
+import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
-import { tracks } from '@/lib/tracks';
 
 const Player = () => {
-  const currentTrack = tracks[0];
+  const {
+    isPlaying,
+    setIsPlaying,
+    handlePlayNext,
+    handlePlayPrev,
+    currentTrack,
+  } = usePlayerContext();
 
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
@@ -29,18 +35,21 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={handlePlayPrev}
               >
                 <ArrowLeftToLine />
               </Button>
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={() => setIsPlaying(!isPlaying)}
               >
-                <Play />
+                {isPlaying ? <Pause /> : <Play />}
               </Button>
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
+                onClick={handlePlayNext}
               >
                 <ArrowRightToLine />
               </Button>

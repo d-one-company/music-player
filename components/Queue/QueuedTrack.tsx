@@ -1,3 +1,4 @@
+import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import { EllipsisVertical } from 'lucide-react';
 import Image from 'next/image';
@@ -6,8 +7,12 @@ import { Button } from '../ui/button';
 type Props = { track: Track };
 
 const QueuedTrack = ({ track }: Props) => {
+  const { setCurrentTrack } = usePlayerContext();
+
   return (
     <div
+      role="presentation"
+      onClick={() => setCurrentTrack(track)}
       className="flex max-w-full items-center justify-between"
       key={track.title}
     >

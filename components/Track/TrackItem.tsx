@@ -1,13 +1,20 @@
+'use client';
+
+import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import Image from 'next/image';
 
-type TrackItemProps = {
-  track: Track;
-};
+type Props = { track: Track };
 
-const TrackItem = ({ track }: TrackItemProps) => {
+const TrackItem = ({ track }: Props) => {
+  const { setCurrentTrack } = usePlayerContext();
+
   return (
-    <div className="flex items-center gap-4">
+    <div
+      role="presentation"
+      className="flex items-center gap-4"
+      onClick={() => setCurrentTrack(track)}
+    >
       <Image
         className="aspect-square rounded-md bg-contain"
         src={track.image}

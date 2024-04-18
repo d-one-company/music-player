@@ -1,5 +1,5 @@
-import TrackItem from '../Track/TrackItem';
 import { tracks } from '@/lib/tracks';
+import TrackItem from '../Track/TrackItem';
 
 const TrendingTracks = () => {
   return (

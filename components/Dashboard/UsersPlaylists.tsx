@@ -1,5 +1,5 @@
-import PlaylistItem from '../Playlist/PlaylistItem';
 import { playlists } from '@/lib/playlists';
+import PlaylistItem from '../Playlist/PlaylistItem';
 
 const UsersPlaylists = () => {
   return (
