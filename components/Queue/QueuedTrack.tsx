@@ -14,7 +14,7 @@ const QueuedTrack = ({ track }: Props) => {
       role="presentation"
       onClick={() => setCurrentTrack(track)}
       className="flex max-w-full items-center justify-between"
-      key={track.title}
+      key={track.id}
     >
       <div className="flex gap-3">
         <Image

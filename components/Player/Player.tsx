@@ -24,6 +24,8 @@ const Player = () => {
 
   if (!currentTrack) return null;
 
+  if (!currentTrack) return null;
+
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
       <audio

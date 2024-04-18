@@ -6,7 +6,7 @@ const RecentFavouritesList = () => {
   return (
     <div className="flex items-center gap-3 overflow-x-auto">
       {tracks?.map(track => (
-        <RecentFavouriteListItem key={track.title} track={track} />
+        <RecentFavouriteListItem key={track.id} track={track} />
       ))}
     </div>
   );
