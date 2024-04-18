@@ -1,4 +1,4 @@
-import { Track } from '@/types/track';
+import { Track } from '@/types';
 import { EllipsisVertical } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
@@ -7,10 +7,10 @@ type Props = { track: Track };
 
 const QueuedTrack = ({ track }: Props) => {
   return (
-    <div className="flex items-center justify-between" key={track.id + 1}>
+    <div className="flex items-center justify-between" key={track.title}>
       <div className="flex gap-3">
         <Image
-          src={track.img}
+          src={track.image}
           alt="track"
           width={65}
           height={65}

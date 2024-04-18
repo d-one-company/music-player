@@ -1,4 +1,4 @@
-import { Track } from '@/types/track';
+import { Track } from '@/types';
 import Image from 'next/image';
 
 type TrackItemProps = {
@@ -9,9 +9,8 @@ const TrackItem = ({ track }: TrackItemProps) => {
   return (
     <div className="flex items-center gap-4">
       <Image
-        className="shrink-0 grow-0 rounded-md"
-        //todo: check URL
-        src={track.img}
+        className="aspect-square rounded-md bg-contain"
+        src={track.image}
         alt={track.title}
         width={55}
         height={55}

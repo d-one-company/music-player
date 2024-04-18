@@ -1,14 +1,11 @@
-import { getServerSession } from 'next-auth/next';
 import PlaylistItem from '../Playlist/PlaylistItem';
-import { generateFakeTracks } from '@/lib/fakeData';
+import { playlists } from '@/lib/playlists';
 
-const UsersPlaylists = async () => {
-  const playlists = generateFakeTracks({ count: 10 });
-
+const UsersPlaylists = () => {
   return (
     <div className="flex w-full items-center gap-4 overflow-x-auto">
       {playlists.map(playlist => (
-        <PlaylistItem key={playlist.id} playlist={playlist} />
+        <PlaylistItem key={playlist.title} playlist={playlist} />
       ))}
     </div>
   );
