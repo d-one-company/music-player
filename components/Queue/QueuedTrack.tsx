@@ -17,7 +17,7 @@ const QueuedTrack = ({ track }: Props) => {
           alt="track"
           width={65}
           height={65}
-          className="shrink-0 grow-0 rounded-sm"
+          className="aspect-square shrink-0 grow-0 rounded-sm"
         />
         <div className="flex max-w-full flex-col justify-center space-y-1">
           <p className="line-clamp-1 text-ellipsis font-light">{track.title}</p>

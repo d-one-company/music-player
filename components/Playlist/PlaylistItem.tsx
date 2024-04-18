@@ -25,7 +25,9 @@ const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
       </Button>
       <div className="bg-muted-50 absolute bottom-0 flex h-1/2 w-full flex-col justify-center overflow-hidden px-4 backdrop-blur-lg">
         <p className=" line-clamp-1 text-ellipsis">{playlist.title}</p>
-        <p className="text-sm text-muted-foreground">10 tracks</p>
+        <p className="text-sm text-muted-foreground">
+          {playlist.tracks?.length || 1} tracks
+        </p>
       </div>
     </div>
   );
