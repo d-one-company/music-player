@@ -3,22 +3,35 @@
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
 const Player = () => {
   const {
     isPlaying,
-    setIsPlaying,
+    togglePlay,
     handlePlayNext,
     handlePlayPrev,
     currentTrack,
   } = usePlayerContext();
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current)
+      isPlaying ? audioRef.current.play() : audioRef.current.pause();
+  }, [isPlaying, currentTrack]);
 
   if (!currentTrack) return null;
 
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
+      <audio
+        autoPlay
+        ref={audioRef}
+        src={currentTrack?.url}
+        onEnded={handlePlayNext}
+      />
       <Image
         fill
         alt={currentTrack?.title}
@@ -44,7 +57,7 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={togglePlay}
               >
                 {isPlaying ? <Pause /> : <Play />}
               </Button>
