@@ -1,4 +1,4 @@
-import { Track } from '@spotify/web-api-ts-sdk';
+import { Track } from '@/types/track';
 import { EllipsisVertical } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
@@ -10,16 +10,16 @@ const QueuedTrack = ({ track }: Props) => {
     <div className="flex items-center justify-between" key={track.id + 1}>
       <div className="flex gap-3">
         <Image
-          src={track.album.images[0].url}
+          src={track.img}
           alt="track"
           width={65}
           height={65}
           className="grow-0 rounded-sm"
         />
         <div className="flex flex-col justify-center space-y-1">
-          <p className="font-light">{track.album.name}</p>
+          <p className="font-light">{track.title}</p>
           <p className="text-sm font-light text-muted-foreground">
-            {track.artists.map(artist => artist.name).join(', ')}
+            {track.artist}
           </p>
         </div>
       </div>

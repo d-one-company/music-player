@@ -8,12 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { getServerAuthSession } from '@/lib/auth';
+import { generateFakeImage } from '@/lib/fakeData';
 import { BellDot, ChevronDown, User } from 'lucide-react';
 
 const Profile = async () => {
-  const session = await getServerAuthSession();
-
   return (
     <div className="flex items-center gap-2">
       <Button className="rounded-full" variant="ghost">
@@ -27,7 +25,7 @@ const Profile = async () => {
           >
             <Avatar>
               <AvatarImage
-                src={session?.user?.image || undefined}
+                src={generateFakeImage({ width: 36, height: 36 })}
                 width={36}
                 height={36}
                 alt="Avatar"
@@ -37,7 +35,7 @@ const Profile = async () => {
                 <User />
               </AvatarFallback>
             </Avatar>
-            <span>{session?.user?.name}</span>
+            <span>Alex</span>
             <ChevronDown />
           </Button>
         </DropdownMenuTrigger>
