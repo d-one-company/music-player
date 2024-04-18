@@ -1,13 +1,13 @@
 'use client';
 
-import { generateFakeTracks } from '@/lib/fakeData';
 import { ArrowLeftToLine, ArrowRightToLine, Play } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
+import { tracks } from '@/lib/tracks';
 
 const Player = () => {
-  const currentTrack = generateFakeTracks({ count: 1 })[0];
+  const currentTrack = tracks[0];
 
   return (
     <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
@@ -15,7 +15,7 @@ const Player = () => {
         fill
         alt={currentTrack?.title}
         className="rounded-md"
-        src={currentTrack?.img}
+        src={currentTrack?.image}
       />
       <div className="absolute flex h-[60%] w-full items-end px-2 pb-2 ">
         <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">
