@@ -1,3 +1,4 @@
+import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types/track';
 import { EllipsisVertical } from 'lucide-react';
 import Image from 'next/image';
@@ -6,8 +7,15 @@ import { Button } from '../ui/button';
 type Props = { track: Track };
 
 const QueuedTrack = ({ track }: Props) => {
+  const { setCurrentTrack } = usePlayerContext();
+
   return (
-    <div className="flex items-center justify-between" key={track.id + 1}>
+    <div
+      role="presentation"
+      onClick={() => setCurrentTrack(track)}
+      className="flex items-center justify-between"
+      key={track.id + 1}
+    >
       <div className="flex gap-3">
         <Image
           src={track.img}

@@ -1,6 +1,5 @@
-import { getServerSession } from 'next-auth/next';
-import PlaylistItem from '../Playlist/PlaylistItem';
 import { generateFakeTracks } from '@/lib/fakeData';
+import PlaylistItem from '../Playlist/PlaylistItem';
 
 const UsersPlaylists = async () => {
   const playlists = generateFakeTracks({ count: 10 });

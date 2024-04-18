@@ -1,7 +1,7 @@
 import { generateFakeTracks } from '@/lib/fakeData';
 import TrackItem from '../Track/TrackItem';
 
-const TrendingTracks = async () => {
+const TrendingTracks = () => {
   const trendingTracks = generateFakeTracks({ count: 10 });
 
   return (
