@@ -13,19 +13,19 @@ import {
   Package,
   Settings,
   ShoppingCart,
-  Users2
+  Users2,
 } from 'lucide-react';
 
 const Sidebar = () => {
   return (
     <TooltipProvider>
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-24 flex-col bg-muted/50 shadow-lg sm:flex">
+      <aside className="fixed inset-y-0 left-0 z-10 hidden flex-col bg-muted/50 shadow-lg sm:flex">
         <nav className="flex flex-col items-center gap-4 px-2 sm:pb-4 sm:pt-9">
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-white bg-sky-500 transition-colors hover:text-foreground md:h-9 md:w-9"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500 text-white transition-colors hover:text-foreground md:h-9 md:w-9"
               >
                 <Music className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>

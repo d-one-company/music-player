@@ -9,7 +9,7 @@ type PlaylistItemProps = {
 
 const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
   return (
-    <div className="relative h-28 w-44 shrink-0 rounded-md">
+    <div className="relative min-h-32 w-44 shrink-0 rounded-md">
       <Image
         fill
         alt={playlist.title}
@@ -23,11 +23,9 @@ const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
       >
         <Music2 className="transition-all " />
       </Button>
-      <div className="bg-muted-50 absolute bottom-0 flex h-1/3 w-full flex-col justify-center p-4 backdrop-blur-lg">
-        <p>{playlist.title}</p>
-        <p className="text-sm text-muted-foreground">
-          {playlist.tracks?.length} tracks
-        </p>
+      <div className="bg-muted-50 absolute bottom-0 flex h-1/2 w-full flex-col justify-center overflow-hidden px-4 backdrop-blur-lg">
+        <p className=" line-clamp-1 text-ellipsis">{playlist.title}</p>
+        <p className="text-sm text-muted-foreground">10 tracks</p>
       </div>
     </div>
   );
