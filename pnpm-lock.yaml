@@ -38,9 +38,6 @@ dependencies:
   husky:
     specifier: ^9.0.11
     version: 9.0.11
-  jiti:
-    specifier: ^1.21.0
-    version: 1.21.0
   lint-staged:
     specifier: ^15.2.2
     version: 15.2.2
