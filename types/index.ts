@@ -5,6 +5,8 @@ export type Track = {
   artist: string;
   image: string;
   duration: string;
+  viewsCount: number;
+  album: string;
 };
 
 export type Playlist = {
