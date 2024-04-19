@@ -1,11 +1,15 @@
 'use client';
 
 import { tracks } from '@/lib/tracks';
-import { Track } from '@/types';
+import { Playlist, Track } from '@/types';
 import { ReactNode, createContext, useContext, useState } from 'react';
+
+export type PlaylistOptions = 'trending' | 'hiphop' | 'pop' | 'rock';
 interface PlayerContextType {
   currentTrack: Track | undefined;
   isPlaying: boolean;
+  currentPlaylist: Playlist | undefined;
+  setCurrentPlaylist: (playlist: Playlist) => void;
   setCurrentTrack: (track: Track) => void;
   playTrack: (track: Track) => void;
   togglePlay: () => void;
@@ -16,6 +20,7 @@ const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
+  const [currentPlaylist, setCurrentPlaylist] = useState<Playlist>();
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -55,6 +60,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       value={{
         currentTrack,
         isPlaying,
+        currentPlaylist,
+        setCurrentPlaylist,
         playTrack,
         setCurrentTrack,
         togglePlay,
