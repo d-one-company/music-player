@@ -25,6 +25,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_1.src,
+    viewsCount: 8069542,
+    album: 'Gravity',
   },
 
   {
@@ -34,6 +36,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_2.src,
+    viewsCount: 1029293,
+    album: 'Cruel Silence',
   },
 
   {
@@ -43,6 +47,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_3.src,
+    viewsCount: 2399957,
+    album: 'SunBeam',
   },
 
   {
@@ -52,6 +58,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_4.src,
+    viewsCount: 4273927,
+    album: 'Always Never',
   },
 
   {
@@ -61,6 +69,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_1.src,
+    viewsCount: 8069542,
+    album: 'All Eyez on Me',
   },
 
   {
@@ -70,6 +80,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_2.src,
+    viewsCount: 1029293,
+    album: 'One Nation',
   },
 
   {
@@ -79,6 +91,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_3.src,
+    viewsCount: 2399957,
+    album: 'Kamikaze',
   },
 
   {
@@ -88,6 +102,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: IndiePop_1.src,
+    album: 'Breathe',
+    viewsCount: 4273927,
   },
 
   {
@@ -97,6 +113,8 @@ export const tracks: Track[] = [
     title: 'Shine',
     duration: '4:45',
     image: IndiePop_2.src,
+    album: 'Shine',
+    viewsCount: 223414,
   },
 
   {
@@ -106,6 +124,8 @@ export const tracks: Track[] = [
     title: 'Stronger',
     duration: '2:22',
     image: IndiePop_3.src,
+    album: 'Stronger',
+    viewsCount: 123414,
   },
 
   {
@@ -115,6 +135,8 @@ export const tracks: Track[] = [
     title: 'Careless',
     duration: '4:01',
     image: IndiePop_1.src,
+    album: 'Careless',
+    viewsCount: 872312,
   },
 
   {
@@ -124,6 +146,8 @@ export const tracks: Track[] = [
     title: 'Why We Lose',
     duration: '3:14',
     image: Jazz1.src,
+    album: 'Why We Lose',
+    viewsCount: 992812,
   },
 
   {
@@ -133,6 +157,8 @@ export const tracks: Track[] = [
     title: 'Stressed Out',
     duration: '4:45',
     image: Jazz2.src,
+    album: 'Stressed Out',
+    viewsCount: 123525,
   },
 
   {
@@ -142,6 +168,8 @@ export const tracks: Track[] = [
     title: 'Ark Future',
     duration: '2:54',
     image: Jazz3.src,
+    album: 'Ark Future',
+    viewsCount: 928124,
   },
 
   {
@@ -151,6 +179,8 @@ export const tracks: Track[] = [
     title: 'Superhero',
     duration: '3:13',
     image: Jazz1.src,
+    album: 'Superhero',
+    viewsCount: 999212,
   },
 
   {
@@ -160,6 +190,8 @@ export const tracks: Track[] = [
     title: 'C U Again',
     duration: '2:15',
     image: Jazz2.src,
+    album: 'C U Again',
+    viewsCount: 223414,
   },
 
   {
@@ -169,6 +201,8 @@ export const tracks: Track[] = [
     title: 'Savannah',
     duration: '3:45',
     image: Jazz3.src,
+    album: 'Savannah',
+    viewsCount: 778213,
   },
 
   {
@@ -178,6 +212,8 @@ export const tracks: Track[] = [
     title: 'Feel Good',
     duration: '2:11',
     image: Party1.src,
+    album: 'Feel Good',
+    viewsCount: 424142,
   },
 
   {
@@ -187,6 +223,8 @@ export const tracks: Track[] = [
     title: 'MATAFAKA',
     duration: '2:41',
     image: Party2.src,
+    album: 'MATAFAKA',
+    viewsCount: 123414,
   },
 
   {
@@ -196,6 +234,8 @@ export const tracks: Track[] = [
     title: 'The Next Episode',
     duration: '4:10',
     image: Party3.src,
+    album: 'The Next Episode',
+    viewsCount: 992812,
   },
 
   {
@@ -205,6 +245,8 @@ export const tracks: Track[] = [
     title: 'Feel Good Future',
     duration: '4:02',
     image: Party1.src,
+    album: 'Feel Good Future',
+    viewsCount: 424142,
   },
 
   {
@@ -214,6 +256,8 @@ export const tracks: Track[] = [
     title: 'We Are',
     duration: '3:11',
     image: Party2.src,
+    album: 'We Are',
+    viewsCount: 772613,
   },
 
   {
@@ -223,6 +267,8 @@ export const tracks: Track[] = [
     title: 'Heroes Tonight',
     duration: '3:44',
     image: Party3.src,
+    album: 'Heroes Tonight',
+    viewsCount: 234123,
   },
 
   {
@@ -232,6 +278,8 @@ export const tracks: Track[] = [
     title: 'Dreams',
     duration: '3:10',
     image: Metal1.src,
+    album: 'Dreams',
+    viewsCount: 871238,
   },
 
   {
@@ -241,6 +289,8 @@ export const tracks: Track[] = [
     title: 'Bass Midtempo',
     duration: '4:07',
     image: Metal2.src,
+    album: 'Bass Midtempo',
+    viewsCount: 234612,
   },
 
   {
@@ -250,6 +300,8 @@ export const tracks: Track[] = [
     title: "What's the Problem",
     duration: '2:11',
     image: Metal3.src,
+    album: "What's the Problem",
+    viewsCount: 812732,
   },
 
   {
@@ -259,6 +311,8 @@ export const tracks: Track[] = [
     title: 'Done Better',
     duration: '3:13',
     image: Metal1.src,
+    album: 'Done Better',
+    viewsCount: 992812,
   },
 
   {
@@ -268,6 +322,8 @@ export const tracks: Track[] = [
     title: 'Lost My Love',
     duration: '4:14',
     image: Metal2.src,
+    album: 'Lost My Love',
+    viewsCount: 123414,
   },
 
   {
@@ -277,5 +333,7 @@ export const tracks: Track[] = [
     title: 'Mortals',
     duration: '5:00',
     image: Metal3.src,
+    album: 'Mortals',
+    viewsCount: 992812,
   },
 ];

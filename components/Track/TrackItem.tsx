@@ -1,52 +1,62 @@
 'use client';
 
 import useTrackStore from '@/lib/store';
-import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
-import { Track } from '@/types';
+import type { Track } from '@/types';
 import Image from 'next/image';
-import FavoriteIcon from '../icons/FavoriteIcon';
 import { Toggle } from '../ui/toggle';
+import FavoriteIcon from '../icons/FavoriteIcon';
 
-type Props = { track: Track };
+type TrackItemProps = { track: Track };
 
-const TrackItem = ({ track }: Props) => {
-  const { currentTrack, playTrack } = usePlayerContext();
-  const { favoriteTrackIds, toggleFavorite } = useTrackStore();
+const TrackItem = ({ track }: TrackItemProps) => {
+  const { playTrack } = usePlayerContext();
+  const { favoriteTracks, toggleFavorite } = useTrackStore();
 
   return (
     <div
+      className="flex w-full items-center justify-between gap-4 rounded-sm p-2.5 group-hover:bg-[#181818]"
       role="presentation"
-      className={cn(
-        'flex cursor-pointer items-center gap-4 rounded-md py-2 pl-2 transition-colors duration-200',
-        currentTrack?.id === track.id
-          ? 'bg-gray-200/20'
-          : 'hover:bg-gray-100/10'
-      )}
       onClick={() => playTrack(track)}
     >
-      <Image
-        className="aspect-square rounded-md bg-contain"
-        src={track.image}
-        alt={track.title}
-        width={55}
-        height={55}
-      />
-      <div className="flex w-[300px] flex-col">
-        <p className="max-w-full truncate text-sm">{track.title}</p>
-        <p className="text-sm text-muted-foreground">{track.artist}</p>
+      <div className="flex flex-shrink-0 flex-grow items-center justify-start gap-4">
+        <Image
+          src={track.image}
+          alt={track.title}
+          className="aspect-square rounded-sm"
+          width={55}
+          height={55}
+        />
+        <div className="flex h-full flex-col gap-0.5">
+          <span className="max-w-full truncate text-sm">{track.title}</span>
+          <span className="text-xs text-muted-foreground">{track.artist}</span>
+        </div>
       </div>
-
-      <div className="ml-auto">
-        <Toggle
-          onClick={e => e.stopPropagation()}
-          variant="favorite"
-          className="h-10 w-10"
-          pressed={favoriteTrackIds.includes(track.id)}
-          onPressedChange={() => toggleFavorite(track.id)}
-        >
-          <FavoriteIcon />
-        </Toggle>
+      <div className="grid grid-cols-3 xl:grid-cols-7">
+        <div className="col-span-2 hidden min-w-[150px] items-center justify-center xl:flex">
+          <span className="text-sm text-muted-foreground">{track.album}</span>
+        </div>
+        <div className="col-span-2 hidden min-w-[150px] items-center justify-center xl:flex">
+          <span className="text-sm text-muted-foreground">
+            {new Intl.NumberFormat('en-US').format(track.viewsCount)}
+          </span>
+        </div>
+        <div className="col-span-2 flex min-w-[150px] items-center justify-center">
+          <span className="text-sm text-muted-foreground">
+            {track.duration}
+          </span>
+        </div>
+        <div className="col-span-1">
+          <Toggle
+            variant="favorite"
+            className="h-10 w-10"
+            pressed={favoriteTracks?.flatMap(t => t.id)?.includes(track.id)}
+            onPressedChange={() => toggleFavorite(track.id)}
+            onClick={e => e.stopPropagation()}
+          >
+            <FavoriteIcon />
+          </Toggle>
+        </div>
       </div>
     </div>
   );
