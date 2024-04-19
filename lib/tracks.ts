@@ -13,6 +13,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_1.src,
+    viewsCount: 8069542,
+    album: 'Gravity',
   },
 
   {
@@ -22,6 +24,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_2.src,
+    viewsCount: 1029293,
+    album: 'Cruel Silence',
   },
 
   {
@@ -31,6 +35,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_3.src,
+    viewsCount: 2399957,
+    album: 'SunBeam',
   },
 
   {
@@ -40,6 +46,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_4.src,
+    viewsCount: 4273927,
+    album: 'Always Never',
   },
 
   {
@@ -49,6 +57,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_1.src,
+    viewsCount: 8069542,
+    album: 'All Eyez on Me',
   },
 
   {
@@ -58,6 +68,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_2.src,
+    viewsCount: 1029293,
+    album: 'One Nation',
   },
 
   {
@@ -67,6 +79,8 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_3.src,
+    viewsCount: 2399957,
+    album: 'Kamikaze',
   },
 
   {
@@ -76,5 +90,7 @@ export const tracks: Track[] = [
     title: 'Breathe',
     duration: '3:45',
     image: Image_4.src,
+    viewsCount: 4273927,
+    album: 'Recovery',
   },
 ];
