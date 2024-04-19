@@ -27,20 +27,23 @@ const Player = () => {
   if (!currentTrack) return null;
 
   return (
-    <div className="relative mt-10 flex h-64 w-full items-end rounded-md">
+    <div className="mt-10 h-64 w-full overflow-hidden rounded-md px-5 grid-stack">
       <audio
         autoPlay
         ref={audioRef}
         src={currentTrack?.url}
         onEnded={handlePlayNext}
       />
-      <Image
-        fill
-        alt={currentTrack?.title}
-        className="rounded-md"
-        src={currentTrack?.image}
-      />
-      <div className="absolute flex h-[60%] w-full items-end px-2 pb-2 ">
+      <div className="relative">
+        <Image
+          fill
+          alt={currentTrack?.title}
+          className="rounded-md"
+          src={currentTrack?.image}
+        />
+      </div>
+
+      <div className="mt-auto flex px-2 pb-2">
         <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">
           <div className="flex flex-col justify-center space-y-2.5 py-4 text-center text-sm">
             <div className="flex flex-col space-y-0.5">
