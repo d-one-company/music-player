@@ -58,18 +58,6 @@ const TrackItem = ({ track }: TrackItemProps) => {
           </Toggle>
         </div>
       </div>
-
-      <div className="ml-auto">
-        <Toggle
-          onClick={e => e.stopPropagation()}
-          variant="favorite"
-          className="h-10 w-10"
-          pressed={favoriteTrackIds.includes(track.id)}
-          onPressedChange={() => toggleFavorite(track.id)}
-        >
-          <FavoriteIcon />
-        </Toggle>
-      </div>
     </div>
   );
 };
