@@ -13,7 +13,7 @@ const Queue = () => {
           {currentPlaylist ? `Next on ${currentPlaylist.title}` : 'Queue'}
         </p>
       </div>
-      <div className="flex max-h-[calc(100%-320px)] w-full max-w-full flex-col space-y-2 overflow-y-auto px-4 pt-2">
+      <div className="scrollbar-sky flex w-full max-w-full flex-1 flex-col space-y-2 overflow-y-auto px-4 pt-2">
         {tracks?.map(track => <QueuedTrack track={track} key={track.id} />)}
       </div>
     </>

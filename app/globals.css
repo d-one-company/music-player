@@ -80,9 +80,9 @@
 }
 
 .scrollbar-sky::-webkit-scrollbar-thumb {
-  @apply bg-sky-500 rounded-md
+  @apply rounded-md bg-sky-500;
 }
 
 .scrollbar-sky::-webkit-scrollbar-track {
-  @apply bg-muted/60
+  @apply bg-muted/60;
 }

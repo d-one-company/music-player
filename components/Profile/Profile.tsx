@@ -21,9 +21,9 @@ const Profile = async () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="flex gap-2.5 overflow-hidden rounded-full px-3 py-4"
+            className="flex gap-2.5 overflow-hidden rounded-full px-1.5 py-4"
           >
-            <Avatar>
+            <Avatar className="h-8 w-8">
               <AvatarImage
                 src={generateFakeImage({ width: 36, height: 36 })}
                 width={36}
