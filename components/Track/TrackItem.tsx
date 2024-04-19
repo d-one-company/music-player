@@ -10,14 +10,14 @@ import FavoriteIcon from '../icons/FavoriteIcon';
 type TrackItemProps = { track: Track };
 
 const TrackItem = ({ track }: TrackItemProps) => {
-  const { setCurrentTrack } = usePlayerContext();
+  const { playTrack } = usePlayerContext();
   const { favoriteTrackIds, toggleFavorite } = useTrackStore();
 
   return (
     <div
       className="flex w-full items-center justify-between gap-4 rounded-sm p-2.5 group-hover:bg-[#181818]"
       role="presentation"
-      onClick={e => setCurrentTrack(track)}
+      onClick={() => playTrack(track)}
     >
       <div className="flex flex-shrink-0 flex-grow items-center justify-start gap-4">
         <Image
