@@ -2,14 +2,11 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 export interface Store {
-  recentTracks: number[];
-  addRecentTrack: (trackId: number) => void;
-
   queuedTrackIds: number[];
   queueTrack: (trackId: number) => void;
   dequeueTrack: (trackId: number) => void;
 
-  favoriteTrackIds: number[];
+  favoriteTracks: { id: number; timestamp: number }[];
   toggleFavorite: (trackId: number) => void;
 }
 
@@ -17,11 +14,8 @@ const useTrackStore = create<Store>()(
   devtools(
     persist(
       set => ({
-        recentTracks: [],
-        favoriteTrackIds: [],
+        favoriteTracks: [],
         queuedTrackIds: [],
-        addRecentTrack: trackId =>
-          set(state => ({ recentTracks: [trackId, ...state.recentTracks] })),
         queueTrack: trackId =>
           set(state => ({
             queuedTrackIds: [...state.queuedTrackIds, trackId],
@@ -32,9 +26,14 @@ const useTrackStore = create<Store>()(
           })),
         toggleFavorite: trackId =>
           set(state => ({
-            favoriteTrackIds: state.favoriteTrackIds.some(id => id === trackId)
-              ? state.favoriteTrackIds.filter(id => id !== trackId)
-              : [...state.favoriteTrackIds, trackId],
+            favoriteTracks: state.favoriteTracks.some(
+              track => track.id === trackId
+            )
+              ? state.favoriteTracks?.filter(track => trackId !== track.id)
+              : [
+                  ...state.favoriteTracks,
+                  { id: trackId, timestamp: Date.now() },
+                ],
           })),
       }),
       { name: 'track-store' }

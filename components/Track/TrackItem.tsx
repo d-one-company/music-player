@@ -11,7 +11,7 @@ type TrackItemProps = { track: Track };
 
 const TrackItem = ({ track }: TrackItemProps) => {
   const { playTrack } = usePlayerContext();
-  const { favoriteTrackIds, toggleFavorite } = useTrackStore();
+  const { favoriteTracks, toggleFavorite } = useTrackStore();
 
   return (
     <div
@@ -50,7 +50,7 @@ const TrackItem = ({ track }: TrackItemProps) => {
           <Toggle
             variant="favorite"
             className="h-10 w-10"
-            pressed={favoriteTrackIds.includes(track.id)}
+            pressed={favoriteTracks?.flatMap(t => t.id)?.includes(track.id)}
             onPressedChange={() => toggleFavorite(track.id)}
             onClick={e => e.stopPropagation()}
           >
