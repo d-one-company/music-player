@@ -1,9 +1,9 @@
 'use client';
 
+import useTrackStore from '@/lib/store';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Track } from '@/types';
 import Image from 'next/image';
-import useTrackStore from '@/lib/store';
 import { Toggle } from '../ui/toggle';
 import FavoriteIcon from '../icons/FavoriteIcon';
 
@@ -57,6 +57,18 @@ const TrackItem = ({ track }: TrackItemProps) => {
             <FavoriteIcon />
           </Toggle>
         </div>
+      </div>
+
+      <div className="ml-auto">
+        <Toggle
+          onClick={e => e.stopPropagation()}
+          variant="favorite"
+          className="h-10 w-10"
+          pressed={favoriteTrackIds.includes(track.id)}
+          onPressedChange={() => toggleFavorite(track.id)}
+        >
+          <FavoriteIcon />
+        </Toggle>
       </div>
     </div>
   );

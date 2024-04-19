@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import { EllipsisVertical } from 'lucide-react';
@@ -7,13 +8,18 @@ import { Button } from '../ui/button';
 type Props = { track: Track };
 
 const QueuedTrack = ({ track }: Props) => {
-  const { setCurrentTrack } = usePlayerContext();
+  const { currentTrack, playTrack } = usePlayerContext();
 
   return (
     <div
       role="presentation"
-      onClick={() => setCurrentTrack(track)}
-      className="flex max-w-full items-center justify-between"
+      onClick={() => playTrack(track)}
+      className={cn(
+        'flex max-w-full cursor-pointer items-center justify-between rounded-md py-2 pl-3 transition-colors duration-200',
+        currentTrack?.id === track.id
+          ? 'bg-gray-200/20'
+          : 'hover:bg-gray-100/10'
+      )}
       key={track.id}
     >
       <div className="flex gap-3">

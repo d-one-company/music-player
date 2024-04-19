@@ -1,16 +1,23 @@
+import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import Image from 'next/image';
 
-type RecentFavouriteListItemProps = { track: Track };
+type Props = { track: Track };
 
-const RecentFavouriteListItem = ({ track }: RecentFavouriteListItemProps) => {
-  const { setCurrentTrack } = usePlayerContext();
+const RecentFavouriteListItem = ({ track }: Props) => {
+  const { currentTrack, playTrack } = usePlayerContext();
+
   return (
     <div
       role="presentation"
-      onClick={() => setCurrentTrack(track)}
-      className="flex size-28 shrink-0 grow-0 flex-col space-y-1"
+      onClick={() => playTrack(track)}
+      className={cn(
+        'size-30 flex shrink-0 grow-0 cursor-pointer flex-col space-y-1 rounded-md p-2 transition-colors duration-200',
+        currentTrack?.id === track.id
+          ? 'bg-gray-200/20'
+          : 'hover:bg-gray-100/10'
+      )}
     >
       <div className="relative size-24">
         <Image
