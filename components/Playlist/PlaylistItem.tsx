@@ -3,11 +3,9 @@ import { Music2 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 
-type PlaylistItemProps = {
-  playlist: Playlist;
-};
+type Props = { playlist: Playlist };
 
-const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
+const PlaylistItem = ({ playlist }: Props) => {
   return (
     <div className="relative min-h-32 w-44 shrink-0 rounded-md">
       <Image
@@ -24,7 +22,7 @@ const PlaylistItem = ({ playlist }: PlaylistItemProps) => {
         <Music2 className="transition-all " />
       </Button>
       <div className="bg-muted-50 absolute bottom-0 flex h-1/2 w-full flex-col justify-center overflow-hidden px-4 backdrop-blur-lg">
-        <p className=" line-clamp-1 text-ellipsis">{playlist.title}</p>
+        <p className="line-clamp-1 text-ellipsis">{playlist.title}</p>
         <p className="text-sm text-muted-foreground">
           {playlist.tracks?.length || 1} tracks
         </p>

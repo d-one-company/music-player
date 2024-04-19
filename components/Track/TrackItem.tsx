@@ -1,23 +1,23 @@
 'use client';
 
+import useTrackStore from '@/lib/store';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import Image from 'next/image';
-import useTrackStore from '@/lib/store';
-import { Toggle } from '../ui/toggle';
 import FavoriteIcon from '../icons/FavoriteIcon';
+import { Toggle } from '../ui/toggle';
 
 type Props = { track: Track };
 
 const TrackItem = ({ track }: Props) => {
-  const { setCurrentTrack } = usePlayerContext();
+  const { playTrack } = usePlayerContext();
   const { favoriteTrackIds, toggleFavorite } = useTrackStore();
 
   return (
     <div
       role="presentation"
       className="flex items-center gap-4"
-      onClick={e => setCurrentTrack(track)}
+      onClick={() => playTrack(track)}
     >
       <Image
         className="aspect-square rounded-md bg-contain"

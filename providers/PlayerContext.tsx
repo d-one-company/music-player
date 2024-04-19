@@ -2,18 +2,12 @@
 
 import { tracks } from '@/lib/tracks';
 import { Track } from '@/types';
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 interface PlayerContextType {
   currentTrack: Track | undefined;
   isPlaying: boolean;
-  queuedTracks: Track[];
   setCurrentTrack: (track: Track) => void;
+  playTrack: (track: Track) => void;
   togglePlay: () => void;
   handlePlayNext: () => void;
   handlePlayPrev: () => void;
@@ -21,58 +15,47 @@ interface PlayerContextType {
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState<Track>();
-  const [queuedTracks, setQueuedTracks] = useState(tracks);
-
-  useEffect(() => {
-    setCurrentTrack(queuedTracks[0]);
-  }, []);
+  const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const playTrack = (track: Track) => {
+    setCurrentTrack(track);
+    setIsPlaying(true);
+  };
+
   const handlePlayNext = () => {
-    const currentTrackIndex = queuedTracks.findIndex(
+    const currentTrackIndex = tracks.findIndex(
       track => track.url === currentTrack?.url
     );
-    const nextTrackIndex = (currentTrackIndex + 1) % queuedTracks.length;
-    const nextTrack = queuedTracks[nextTrackIndex];
+    const nextTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    const nextTrack = tracks[nextTrackIndex];
 
     setCurrentTrack(nextTrack);
 
-    const newTrack =
-      tracks.find(track => track.url === nextTrack.url) ?? tracks[0];
-    const updatedQueue = [...queuedTracks];
-    updatedQueue.splice(currentTrackIndex, 1);
-    updatedQueue.push(newTrack);
-
-    setQueuedTracks(updatedQueue);
+    if (!isPlaying) setIsPlaying(true);
   };
+
   const handlePlayPrev = () => {
-    const currentTrackIndex = queuedTracks.findIndex(
+    const currentTrackIndex = tracks.findIndex(
       track => track.url === currentTrack?.url
     );
     const prevTrackIndex =
-      (currentTrackIndex - 1 + queuedTracks.length) % queuedTracks.length;
-    const prevTrack = queuedTracks[prevTrackIndex];
+      currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+    const prevTrack = tracks[prevTrackIndex];
 
     setCurrentTrack(prevTrack);
 
-    const newTrack =
-      tracks.find(track => track.url === prevTrack.url) ?? tracks[0];
-    const updatedQueue = [...queuedTracks];
-    updatedQueue.splice(currentTrackIndex, 1);
-    updatedQueue.unshift(newTrack);
-
-    setQueuedTracks(updatedQueue);
+    if (!isPlaying) setIsPlaying(true);
   };
   return (
     <PlayerContext.Provider
       value={{
         currentTrack,
         isPlaying,
-        queuedTracks,
+        playTrack,
         setCurrentTrack,
         togglePlay,
         handlePlayNext,
