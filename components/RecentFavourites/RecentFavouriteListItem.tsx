@@ -2,14 +2,15 @@ import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
 import Image from 'next/image';
 
-type RecentFavouriteListItemProps = { track: Track };
+type Props = { track: Track };
 
-const RecentFavouriteListItem = ({ track }: RecentFavouriteListItemProps) => {
-  const { setCurrentTrack } = usePlayerContext();
+const RecentFavouriteListItem = ({ track }: Props) => {
+  const { playTrack } = usePlayerContext();
+
   return (
     <div
       role="presentation"
-      onClick={() => setCurrentTrack(track)}
+      onClick={() => playTrack(track)}
       className="flex size-28 shrink-0 grow-0 flex-col space-y-1"
     >
       <div className="relative size-24">
