@@ -4,7 +4,6 @@ import { tracks } from '@/lib/tracks';
 import { Playlist, Track } from '@/types';
 import { ReactNode, createContext, useContext, useState } from 'react';
 
-export type PlaylistOptions = 'trending' | 'hiphop' | 'pop' | 'rock';
 interface PlayerContextType {
   currentTrack: Track | undefined;
   isPlaying: boolean;
