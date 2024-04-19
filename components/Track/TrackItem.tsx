@@ -38,7 +38,7 @@ const TrackItem = ({ track }: TrackItemProps) => {
         </div>
         <div className="col-span-2 hidden min-w-[150px] items-center justify-center xl:flex">
           <span className="text-sm text-muted-foreground">
-            {track.viewsCount}
+            {new Intl.NumberFormat('en-US').format(track.viewsCount)}
           </span>
         </div>
         <div className="col-span-2 flex min-w-[150px] items-center justify-center">
