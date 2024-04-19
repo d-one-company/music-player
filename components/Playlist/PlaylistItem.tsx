@@ -34,7 +34,7 @@ const PlaylistItem = ({ playlist }: Props) => {
       </Button>
       <div className="bg-muted-50 absolute bottom-0 flex h-1/2 w-full flex-col justify-center overflow-hidden rounded-b-md px-4 text-white/80 backdrop-blur-lg transition-all duration-200 group-hover:text-gray-300/80">
         <p className="line-clamp-1 text-ellipsis">{playlist.title}</p>
-        <p className="text-sm ">{playlist.tracks?.length || 1} tracks</p>
+        <p className="text-sm">{playlist.tracks?.length || 1} tracks</p>
       </div>
     </div>
   );
