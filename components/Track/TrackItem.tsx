@@ -1,21 +1,27 @@
 'use client';
 
 import useTrackStore from '@/lib/store';
+import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Track } from '@/types';
 import Image from 'next/image';
-import { Toggle } from '../ui/toggle';
 import FavoriteIcon from '../icons/FavoriteIcon';
+import { Toggle } from '../ui/toggle';
 
 type TrackItemProps = { track: Track };
 
 const TrackItem = ({ track }: TrackItemProps) => {
-  const { playTrack } = usePlayerContext();
+  const { currentTrack, playTrack } = usePlayerContext();
   const { favoriteTracks, toggleFavorite } = useTrackStore();
 
   return (
     <div
-      className="flex w-full items-center justify-between gap-4 rounded-sm p-2.5 group-hover:bg-[#181818]"
+      className={cn(
+        'flex w-full items-center justify-between gap-4 rounded-sm p-2.5 transition-colors duration-200',
+        currentTrack?.id === track.id
+          ? 'bg-gray-200/20'
+          : 'hover:bg-gray-100/10'
+      )}
       role="presentation"
       onClick={() => playTrack(track)}
     >
