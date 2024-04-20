@@ -108,7 +108,7 @@ export const tracks: Track[] = [
 
   {
     id: 9,
-    url: 'https://utfs.io/f/0815cf75-bb80-4f41-ad7c-75988ca7981d-xv5i21.mp3',
+    url: 'https://utfs.io/f/a4de66ce-9656-4d96-9f36-24f2f8d2b8b3-xv5i21.mp3',
     artist: 'Spektrem',
     title: 'Shine',
     duration: '4:45',
@@ -119,7 +119,7 @@ export const tracks: Track[] = [
 
   {
     id: 10,
-    url: 'https://utfs.io/f/8158cf79-8f64-4bc9-8d8f-5570bf7fba65-f8dtr8.mp3',
+    url: 'https://utfs.io/f/7f38b660-640d-4b2a-8cbb-f4f26d6df2c2-f8dtr8.mp3',
     artist: 'Prismo',
     title: 'Stronger',
     duration: '2:22',
@@ -130,7 +130,7 @@ export const tracks: Track[] = [
 
   {
     id: 11,
-    url: 'https://utfs.io/f/c0d77117-610b-4773-b915-b6730c5a049b-j8f7zj.19.mp3',
+    url: 'https://utfs.io/f/a7c18823-2af1-45b3-ac84-0da46466d33c-j8f7zj.19.mp3',
     artist: 'NEFEX',
     title: 'Careless',
     duration: '4:01',
@@ -141,7 +141,7 @@ export const tracks: Track[] = [
 
   {
     id: 12,
-    url: 'https://utfs.io/f/269901ca-1733-419d-8ce2-12e5a98be38c-irb02f.mp3',
+    url: 'https://utfs.io/f/b098b58c-3a69-4fec-84ea-d72a6909595d-irb02f.mp3',
     artist: 'Cartoon, Jeja',
     title: 'Why We Lose',
     duration: '3:14',
@@ -152,7 +152,7 @@ export const tracks: Track[] = [
 
   {
     id: 13,
-    url: 'https://utfs.io/f/9162d815-9f20-4f5e-9f15-1fa8d40c81e0-f42epx.mp3',
+    url: 'https://utfs.io/f/d7de28d8-2a09-499b-888e-a5bb4f18812b-f42epx.mp3',
     artist: 'Twenty One Pilots',
     title: 'Stressed Out',
     duration: '4:45',
@@ -163,7 +163,7 @@ export const tracks: Track[] = [
 
   {
     id: 15,
-    url: 'https://utfs.io/f/d6cb401e-295f-4af9-946d-e09c3e29f304-ellzeg.mp3',
+    url: 'https://utfs.io/f/e60a96a8-bd47-4d84-a19d-22e5c36e6c4f-ellzeg.mp3',
     artist: 'Ship Wrek, Zookeepers',
     title: 'Ark Future',
     duration: '2:54',
@@ -174,7 +174,7 @@ export const tracks: Track[] = [
 
   {
     id: 16,
-    url: 'https://utfs.io/f/8f0cb42e-0bc4-4f9e-bd3b-81bddbafb17e-xadmnu.mp3',
+    url: 'https://utfs.io/f/543bc2c3-e4ce-4499-9b0c-5addff212b5e-xadmnu.mp3',
     artist: 'Unknown Brain',
     title: 'Superhero',
     duration: '3:13',
@@ -185,7 +185,7 @@ export const tracks: Track[] = [
 
   {
     id: 17,
-    url: 'https://utfs.io/f/f62f7dbb-0acd-4e2b-8f81-dba0e6691544-mckvrt.mp3',
+    url: 'https://utfs.io/f/076440d1-eb82-498e-9e9e-81a6517678c6-mckvrt.mp3',
     artist: 'Cartoon, Jeja',
     title: 'C U Again',
     duration: '2:15',
@@ -196,7 +196,7 @@ export const tracks: Track[] = [
 
   {
     id: 18,
-    url: 'https://utfs.io/f/3a326059-3c7d-497a-980c-cdb912a8b77f-u8kei.mp3',
+    url: 'https://utfs.io/f/2a327b3a-76a2-48a0-befa-62d49b74f0c5-u8kei.mp3',
     artist: 'Diviners',
     title: 'Savannah',
     duration: '3:45',
@@ -207,7 +207,7 @@ export const tracks: Track[] = [
 
   {
     id: 19,
-    url: 'https://utfs.io/f/576f13c2-f1ca-4f0d-815a-2dfbe821bf5a-tpzwgz.mp3',
+    url: 'https://utfs.io/f/5a926121-1e89-40ff-b3c7-38a065910ca2-tpzwgz.mp3',
     artist: 'Syn Cole',
     title: 'Feel Good',
     duration: '2:11',
@@ -218,7 +218,7 @@ export const tracks: Track[] = [
 
   {
     id: 20,
-    url: 'https://utfs.io/f/6df10488-1603-4392-b9bc-2c9c01dee01c-amoxp8.mp3',
+    url: 'https://utfs.io/f/f838be6d-35d1-4d76-a360-579b9e39b61f-amoxp8.mp3',
     artist: 'Unknown Brain',
     title: 'MATAFAKA',
     duration: '2:41',
@@ -229,7 +229,7 @@ export const tracks: Track[] = [
 
   {
     id: 21,
-    url: 'https://utfs.io/f/9f94560a-a56b-4f28-ad68-b84506147cdb-stlg3h.mp3',
+    url: 'https://utfs.io/f/950382cb-3fb2-4f29-a672-1062074b32d2-stlg3h.mp3',
     artist: 'Dr Dre',
     title: 'The Next Episode',
     duration: '4:10',
@@ -251,7 +251,7 @@ export const tracks: Track[] = [
 
   {
     id: 23,
-    url: 'https://utfs.io/f/e2a0d9d4-9a46-4aac-8c6c-2a8c9d216c63-rdx7ei.mp3',
+    url: 'https://utfs.io/f/9a1402e0-51e4-41e5-8718-dfe15c4aad6c-rdx7ei.mp3',
     artist: 'Jo Cohen, Sex Whales',
     title: 'We Are',
     duration: '3:11',
@@ -262,7 +262,7 @@ export const tracks: Track[] = [
 
   {
     id: 24,
-    url: 'https://utfs.io/f/89a4f92e-759a-4348-999b-67426be27f35-6uyol8.mp3',
+    url: 'https://utfs.io/f/7cbd9aa4-8cac-40e1-9f07-722a80bc73e8-6uyol8.mp3',
     artist: 'Janji',
     title: 'Heroes Tonight',
     duration: '3:44',
@@ -273,7 +273,7 @@ export const tracks: Track[] = [
 
   {
     id: 25,
-    url: 'https://utfs.io/f/c2daa869-2198-4059-8ce6-77f57322d0b6-gt9twy.mp3',
+    url: 'https://utfs.io/f/dfef9112-473a-42f9-b6a8-b4913d5e074e-gt9twy.mp3',
     artist: 'Lost Sky',
     title: 'Dreams',
     duration: '3:10',
@@ -284,7 +284,7 @@ export const tracks: Track[] = [
 
   {
     id: 26,
-    url: 'https://utfs.io/f/8c3ee31a-66d0-4382-bc65-4226db00b6be-ra2daj.mp3',
+    url: 'https://utfs.io/f/4bf9064c-30f1-4a95-9346-7232c11d26fb-ra2daj.mp3',
     artist: 'Max Brhon',
     title: 'Bass Midtempo',
     duration: '4:07',
@@ -295,7 +295,7 @@ export const tracks: Track[] = [
 
   {
     id: 27,
-    url: 'https://utfs.io/f/8a31e6c4-5a38-4118-aa1c-d937ae03c6b2-pnb462.mp3',
+    url: 'https://utfs.io/f/a530c1dc-bb49-47ac-8035-736327ea65f7-pnb462.mp3',
     artist: 'OSKI',
     title: "What's the Problem",
     duration: '2:11',
@@ -306,7 +306,7 @@ export const tracks: Track[] = [
 
   {
     id: 28,
-    url: 'https://utfs.io/f/dd86ddb5-4148-4521-a79b-71e0341f6d6a-3sxuwv.mp3',
+    url: 'https://utfs.io/f/31ef1851-4e6e-4012-b587-485965ed8cea-3sxuwv.mp3',
     artist: 'Shiah',
     title: 'Done Better',
     duration: '3:13',
@@ -317,7 +317,7 @@ export const tracks: Track[] = [
 
   {
     id: 29,
-    url: 'https://utfs.io/f/dfdab19e-6824-45f9-b5ab-470dc1aa35e7-8p6w24.mp3',
+    url: 'https://utfs.io/f/dce9f140-7305-4139-bd65-e313799e06d0-8p6w24.mp3',
     artist: 'Tatsunoshin',
     title: 'Lost My Love',
     duration: '4:14',
@@ -328,7 +328,7 @@ export const tracks: Track[] = [
 
   {
     id: 30,
-    url: 'https://utfs.io/f/ac39d249-68c5-4187-938d-3b006083559c-v0hj2v.mp3',
+    url: 'https://utfs.io/f/70425e8c-4760-4ce6-aea2-1da83cdc3b85-v0hj2v.mp3',
     artist: 'Warrio',
     title: 'Mortals',
     duration: '5:00',
