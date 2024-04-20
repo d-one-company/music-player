@@ -3,9 +3,11 @@ import Queue from '../Queue/Queue';
 
 const PlaylistBar = () => {
   return (
-    <div className="flex min-h-screen shrink-0 grow flex-col border bg-muted/50 py-8 md:w-[350px]">
-      <Queue />
-      <Player />
+    <div className="grid h-screen min-w-[350px] shrink-0 grid-rows-content gap-5 border bg-muted/50 py-8 sm:gap-8">
+      <div className="row-start-2 flex flex-col overflow-hidden">
+        <Queue />
+        <Player />
+      </div>
     </div>
   );
 };
