@@ -24,7 +24,7 @@ const RecentFavouriteListItem = ({ track }: Props) => {
           src={track.image}
           alt={track.title}
           fill
-          className="rounded-md"
+          className="rounded-md object-cover"
         />
       </div>
       <p className="truncate text-sm">{track.title}</p>
