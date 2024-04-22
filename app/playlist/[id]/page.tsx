@@ -21,16 +21,18 @@ const Page = ({ params }: Props) => {
   const playlistTracks = playlist?.tracks;
 
   return (
-    <div className="flex h-screen flex-1 basis-[500px] flex-col">
-      <PlaylistHero playlist={playlist} />
-      <PlaylistControls playlist={playlist} setSearch={setSearch} />
-      <div className="flex w-full flex-col items-start gap-4 px-8">
-        <PlaylistHeader />
-        {!!playlistTracks && (
-          <PlaylistTracks search={search} tracks={playlistTracks} />
-        )}
+    <div className="flex overflow-hidden">
+      <div className="flex h-screen flex-1 basis-[500px] flex-col">
+        <PlaylistHero playlist={playlist} />
+        <PlaylistControls playlist={playlist} setSearch={setSearch} />
+        <div className="flex w-full flex-col items-start gap-4 px-8">
+          <PlaylistHeader />
+          {!!playlistTracks && (
+            <PlaylistTracks search={search} tracks={playlistTracks} />
+          )}
+        </div>
+        <LargePlayer />
       </div>
-      <LargePlayer />
     </div>
   );
 };
