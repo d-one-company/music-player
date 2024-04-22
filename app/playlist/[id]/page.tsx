@@ -18,7 +18,8 @@ type Props = {
 
 const Page = ({ params }: Props) => {
   const [search, setSearch] = useState('');
-  const { isPlaying, togglePlay } = usePlayerContext();
+  const { isPlaying, togglePlay, setCurrentAndPlayPlaylist } =
+    usePlayerContext();
 
   const playlist = playlists.find(pl => pl.id === Number(params.id));
   if (!playlist) return null;
@@ -53,7 +54,11 @@ const Page = ({ params }: Props) => {
           <Button
             variant="ghost"
             className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-            onClick={togglePlay}
+            onClick={() => {
+              togglePlay();
+              if (isPlaying) return;
+              setCurrentAndPlayPlaylist(playlist);
+            }}
           >
             {isPlaying ? <Pause /> : <Play />}
           </Button>
