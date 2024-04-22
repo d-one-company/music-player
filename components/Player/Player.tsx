@@ -16,7 +16,7 @@ const Player = () => {
     currentTrack,
   } = usePlayerContext();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [duration, setDuration] = useState<number | undefined>(0);
+  const [currentTime, setCurrentTime] = useState<number | undefined>(0);
 
   useEffect(() => {
     if (audioRef.current)
@@ -25,9 +25,8 @@ const Player = () => {
 
   useEffect(() => {
     if (!audioRef.current) return;
-
     audioRef.current.addEventListener('timeupdate', () => {
-      setDuration(audioRef.current?.currentTime);
+      setCurrentTime(audioRef.current?.currentTime);
     });
   }, [audioRef.current?.currentTime]);
 
@@ -83,12 +82,12 @@ const Player = () => {
             </div>
             <div className="px-4">
               <Slider
-                defaultValue={[duration || 0]}
+                defaultValue={[currentTime || 0]}
                 max={audioRef.current?.duration}
                 onValueChange={value => {
                   if (audioRef.current) audioRef.current.currentTime = value[0];
                 }}
-                value={[duration || 0]}
+                value={[currentTime || 0]}
                 step={1}
               />
             </div>
