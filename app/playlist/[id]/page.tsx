@@ -21,7 +21,7 @@ const Page = ({ params }: Props) => {
   const playlistTracks = playlist?.tracks;
 
   return (
-    <div className="flex h-screen flex-1 basis-[500px] flex-col">
+    <div className="flex h-screen w-full flex-1 basis-[500px] flex-col">
       <PlaylistHero playlist={playlist} />
       <PlaylistControls playlist={playlist} setSearch={setSearch} />
       <div className="flex w-full flex-col items-start gap-4 px-8">

@@ -23,7 +23,7 @@ const Sidebar = () => {
           />
           <SidebarItem icon={<Home />} label="Dashboard" href="/" />
           <SidebarItem icon={<Search />} label="Search" href="/search" />
-          <SidebarItem icon={<Heart />} label="Favorites" />
+          <SidebarItem icon={<Heart />} label="Favorites" href="/favorite" />
           <SidebarItem
             icon={<TrendingUp />}
             label="Trending"
