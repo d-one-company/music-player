@@ -15,12 +15,16 @@ interface PlayerContextType {
   handlePlayNext: () => void;
   handlePlayPrev: () => void;
   setCurrentAndPlayPlaylist: (playlist: Playlist) => void;
+  search: string;
+  setSearch: (search: string) => void;
 }
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
   const [currentPlaylist, setCurrentPlaylist] = useState<Playlist>();
+
+  const [search, setSearch] = useState('');
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -77,6 +81,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         handlePlayNext,
         handlePlayPrev,
         setCurrentAndPlayPlaylist,
+        search,
+        setSearch,
       }}
     >
       {children}
