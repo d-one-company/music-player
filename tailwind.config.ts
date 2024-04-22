@@ -80,7 +80,7 @@ const config = {
   },
   plugins: [
     require('tailwindcss-animate'),
-    plugin(({ addUtilities }) => {
+    plugin(({ addUtilities, matchUtilities, theme }) => {
       addUtilities({
         '.grid-stack': {
           display: 'grid',
@@ -88,7 +88,43 @@ const config = {
             'grid-area': '1 / 1',
           },
         },
+        '.scroll-shadow': {
+          position: 'relative',
+          overflow: 'hidden',
+          display: 'flex',
+
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: '0',
+            bottom: 'auto',
+            height: 'var(--tw-scroll-shadow-size)',
+            background:
+              'linear-gradient(180deg, var(--tw-scroll-shadow-from), transparent)',
+            pointerEvents: 'none',
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            inset: '0',
+            top: 'auto',
+            height: 'var(--tw-scroll-shadow-size)',
+            background:
+              'linear-gradient(0deg, var(--tw-scroll-shadow-from), transparent)',
+            pointerEvents: 'none',
+          },
+        },
       });
+      matchUtilities(
+        {
+          'scroll-shadow-size': value => ({ '--tw-scroll-shadow-size': value }),
+        },
+        { values: theme('spacing') }
+      );
+      matchUtilities(
+        { 'scroll-shadow': value => ({ '--tw-scroll-shadow-from': value }) },
+        { values: theme('colors') }
+      );
     }),
   ],
 } satisfies Config;
