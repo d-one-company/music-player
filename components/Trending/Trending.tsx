@@ -7,7 +7,7 @@ const Trending = () => {
   const { currentPlaylist } = usePlayerContext();
 
   return (
-    <div className="flex w-full flex-col space-y-2 ">
+    <div className="flex w-full flex-col space-y-2">
       <p className="text-lg font-semibold">
         {currentPlaylist ? currentPlaylist.title : 'Trending Right Now'}
       </p>
