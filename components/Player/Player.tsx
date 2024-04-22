@@ -30,6 +30,13 @@ const Player = () => {
     });
   }, [audioRef.current?.currentTime]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      isPlaying ? audioRef.current.play() : audioRef.current.pause();
+      audioRef.current.volume = 0.1;
+    }
+  }, [isPlaying, currentTrack]);
+
   if (!currentTrack) return null;
 
   return (
