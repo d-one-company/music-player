@@ -1,11 +1,8 @@
 import { TooltipProvider } from '../ui/tooltip';
 
 import {
-  ArrowDownToLine,
   Heart,
   Home,
-  ListMinus,
-  Mic,
   Music,
   Plus,
   Search,
@@ -27,14 +24,11 @@ const Sidebar = () => {
           <SidebarItem icon={<Home />} label="Dashboard" href="/" />
           <SidebarItem icon={<Search />} label="Search" />
           <SidebarItem icon={<Heart />} label="Favorites" href="favorite" />
-          <SidebarItem icon={<Mic />} label="Record" />
           <SidebarItem
             icon={<TrendingUp />}
             label="Trending"
             href="/trending"
           />
-          <SidebarItem icon={<ArrowDownToLine />} label="Downloads" />
-          <SidebarItem icon={<ListMinus />} label="Playlists" />
           <SidebarItem icon={<Plus />} label="Create Playlist" />
           <SidebarItem
             className="mt-auto"

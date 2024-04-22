@@ -3,9 +3,9 @@ import PlaylistBar from '@/components/PlaylistBar/PlaylistBar';
 
 export default function Home() {
   return (
-    <div className="flex h-screen flex-wrap overflow-hidden">
+    <>
       <Dashboard />
       <PlaylistBar />
-    </div>
+    </>
   );
 }

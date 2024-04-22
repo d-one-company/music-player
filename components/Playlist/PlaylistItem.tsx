@@ -4,19 +4,21 @@ import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Playlist } from '@/types';
 import { Music2 } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 
 type Props = { playlist: Playlist };
 
 const PlaylistItem = ({ playlist }: Props) => {
-  const { currentPlaylist, setCurrentPlaylist } = usePlayerContext();
+  const router = useRouter();
 
+  const { currentPlaylist } = usePlayerContext();
   if (currentPlaylist?.id === playlist.id) return null;
 
   return (
     <div
       role="presentation"
-      onClick={() => setCurrentPlaylist(playlist)}
+      onClick={() => router.push(`/playlist/${playlist.id}`)}
       className="group relative min-h-32 w-44 shrink-0 cursor-pointer"
     >
       <Image
