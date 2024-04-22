@@ -14,6 +14,7 @@ interface PlayerContextType {
   togglePlay: () => void;
   handlePlayNext: () => void;
   handlePlayPrev: () => void;
+  setCurrentAndPlayPlaylist: (playlist: Playlist) => void;
 }
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export function PlayerProvider({ children }: { children: ReactNode }) {
@@ -54,6 +55,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
     if (!isPlaying) setIsPlaying(true);
   };
+
+  const setCurrentAndPlayPlaylist = (playlist: Playlist) => {
+    setCurrentPlaylist(playlist);
+    if (!!playlist?.tracks?.length) {
+      setCurrentTrack(playlist.tracks[0]);
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <PlayerContext.Provider
       value={{
@@ -66,6 +76,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         togglePlay,
         handlePlayNext,
         handlePlayPrev,
+        setCurrentAndPlayPlaylist,
       }}
     >
       {children}
