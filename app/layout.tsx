@@ -17,7 +17,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang="en" className="dark">
       <body className={inter.className}>
         <PlayerProvider>
-          <div className="flex h-screen flex-wrap overflow-hidden">
+          <div className="flex h-screen overflow-hidden">
             <Sidebar />
             {children}
           </div>
