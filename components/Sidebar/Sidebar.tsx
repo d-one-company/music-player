@@ -3,7 +3,6 @@ import { TooltipProvider } from '../ui/tooltip';
 import {
   Heart,
   Home,
-  ListMinus,
   Music,
   Plus,
   Search,
@@ -24,7 +23,6 @@ const Sidebar = () => {
           />
           <SidebarItem icon={<Home />} label="Dashboard" href="/" />
           <SidebarItem icon={<Search />} label="Search" />
-          <SidebarItem icon={<ListMinus />} label="Playlists" />
           <SidebarItem icon={<Heart />} label="Favorites" />
           <SidebarItem
             icon={<TrendingUp />}
