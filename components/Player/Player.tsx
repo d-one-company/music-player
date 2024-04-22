@@ -3,7 +3,7 @@
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
@@ -16,13 +16,19 @@ const Player = () => {
     currentTrack,
   } = usePlayerContext();
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [currentTime, setCurrentTime] = useState<number | undefined>(0);
 
   useEffect(() => {
     if (audioRef.current)
       isPlaying ? audioRef.current.play() : audioRef.current.pause();
   }, [isPlaying, currentTrack]);
 
-  if (!currentTrack) return null;
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.addEventListener('timeupdate', () => {
+      setCurrentTime(audioRef.current?.currentTime);
+    });
+  }, [audioRef.current?.currentTime]);
 
   if (!currentTrack) return null;
 
@@ -75,7 +81,15 @@ const Player = () => {
               </Button>
             </div>
             <div className="px-4">
-              <Slider defaultValue={[60]} max={100} step={1} />
+              <Slider
+                defaultValue={[currentTime || 0]}
+                max={audioRef.current?.duration}
+                onValueChange={value => {
+                  if (audioRef.current) audioRef.current.currentTime = value[0];
+                }}
+                value={[currentTime || 0]}
+                step={1}
+              />
             </div>
           </div>
         </div>
