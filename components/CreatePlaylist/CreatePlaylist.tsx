@@ -37,6 +37,8 @@ const CreatePlaylist = () => {
         'https://utfs.io/f/e614b606-8a85-430a-87a3-fc836e92a428-p2gkcd.jpg',
     });
     toast('Playlist has been created.');
+    setName('');
+    setAddedTracks([]);
   };
 
   return (
