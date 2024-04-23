@@ -6,6 +6,7 @@ import PlaylistHeader from '@/components/Playlist/PlaylistHeader';
 import PlaylistHero from '@/components/Playlist/PlaylistHero';
 import PlaylistTracks from '@/components/Playlist/PlaylistTracks';
 import { playlists } from '@/lib/playlists';
+import useTrackStore from '@/lib/store';
 import { useState } from 'react';
 
 type Props = {
@@ -15,7 +16,11 @@ type Props = {
 const Page = ({ params }: Props) => {
   const [search, setSearch] = useState('');
 
-  const playlist = playlists.find(pl => pl.id === Number(params.id));
+  const { playlists: storedPlaylists } = useTrackStore();
+
+  const playlist = [...playlists, ...storedPlaylists].find(
+    pl => pl.id === Number(params.id)
+  );
   if (!playlist) return null;
 
   const playlistTracks = playlist?.tracks;

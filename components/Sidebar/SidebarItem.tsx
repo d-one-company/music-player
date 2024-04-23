@@ -29,7 +29,7 @@ const SidebarItem = ({ className, icon, label, href = '#' }: Props) => {
             className
           )}
         >
-          {cloneElement(icon, { className: 'h-5 w-5' })}
+          {cloneElement(icon, { className: 'size-5' })}
           <span className="sr-only">{label}</span>
         </Link>
       </TooltipTrigger>

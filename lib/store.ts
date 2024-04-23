@@ -1,3 +1,4 @@
+import { Playlist } from '@/types';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
@@ -5,9 +6,10 @@ export interface Store {
   queuedTrackIds: number[];
   queueTrack: (trackId: number) => void;
   dequeueTrack: (trackId: number) => void;
-
   favoriteTracks: { id: number; timestamp: number }[];
   toggleFavorite: (trackId: number) => void;
+  playlists: Playlist[];
+  addPlaylist: (playlist: Playlist) => void;
 }
 
 const useTrackStore = create<Store>()(
@@ -34,6 +36,11 @@ const useTrackStore = create<Store>()(
                   ...state.favoriteTracks,
                   { id: trackId, timestamp: Date.now() },
                 ],
+          })),
+        playlists: [],
+        addPlaylist: playlist =>
+          set(state => ({
+            playlists: [...state.playlists, playlist],
           })),
       }),
       { name: 'track-store' }
