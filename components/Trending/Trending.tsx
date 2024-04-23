@@ -11,7 +11,7 @@ const Trending = () => {
       <p className="text-lg font-semibold">
         {currentPlaylist ? currentPlaylist.title : 'Trending Right Now'}
       </p>
-      <TrendingTracks />
+      <TrendingTracks className="max-h-[200px] 2xl:max-h-[300px]" />
     </div>
   );
 };
