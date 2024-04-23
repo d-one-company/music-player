@@ -15,10 +15,7 @@ const TrendingTracks = ({ className }: Props) => {
 
   return (
     <div
-      className={cn(
-        'scrollbar-sky flex max-h-[200px] flex-col overflow-y-scroll 2xl:max-h-[300px]',
-        className
-      )}
+      className={cn('scrollbar-sky flex flex-col overflow-y-scroll', className)}
     >
       {currentTracks?.map((track, idx) => (
         <div className="group flex gap-4" key={track.id}>

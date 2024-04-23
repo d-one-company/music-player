@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
+import PlaylistBar from '@/components/PlaylistBar/PlaylistBar';
 import AllTracks from '@/components/Search/AllTracks';
-import { usePlayerContext } from '@/providers/PlayerContext';
 
 const Page = () => {
   return (
@@ -12,10 +12,9 @@ const Page = () => {
           <div className="scrollbar-sky flex w-full flex-col space-y-2 overflow-y-auto">
             <AllTracks />
           </div>
-          {/* <Trending /> */}
-          {/* <RecentFavourites /> */}
         </main>
       </div>
+      <PlaylistBar />
     </div>
   );
 };
