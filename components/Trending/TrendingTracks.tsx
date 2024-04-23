@@ -26,6 +26,7 @@ const TrendingTracks = ({ className }: Props) => {
       )}
     >
       {currentTracks
+        ?.slice(0, 15)
         ?.filter(
           track =>
             track.title.toLowerCase().includes(search) ||
