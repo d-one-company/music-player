@@ -25,6 +25,8 @@ import AddTrackItem from './AddTrackItem';
 const CreatePlaylist = () => {
   const [name, setName] = useState('');
   const [addedTracks, setAddedTracks] = useState<Track[]>([]);
+  const [search, setSearch] = useState('');
+
   const { addPlaylist } = useTrackStore();
 
   const handleCreatePlaylist = () => {
@@ -69,21 +71,31 @@ const CreatePlaylist = () => {
               />
             </div>
           </div>
+          <Input
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search tracks"
+            className="focus-visible:ring-2 focus-visible:ring-gray-200/50 focus-visible:ring-offset-1"
+          />
           <div className="scrollbar-sky flex max-h-[650px] w-full flex-col overflow-y-auto">
-            {tracks.map(track => (
-              <AddTrackItem
-                track={track}
-                key={track.id}
-                onClick={() => {
-                  setAddedTracks(prev =>
-                    prev.includes(track)
-                      ? prev.filter(t => t.id !== track.id)
-                      : [...prev, track]
-                  );
-                }}
-                added={addedTracks.includes(track)}
-              />
-            ))}
+            {tracks
+              .filter(track =>
+                track.title.toLowerCase().includes(search.toLowerCase())
+              )
+              .map(track => (
+                <AddTrackItem
+                  track={track}
+                  key={track.id}
+                  onClick={() => {
+                    setAddedTracks(prev =>
+                      prev.includes(track)
+                        ? prev.filter(t => t.id !== track.id)
+                        : [...prev, track]
+                    );
+                  }}
+                  added={addedTracks.includes(track)}
+                />
+              ))}
           </div>
           <DialogFooter>
             <DialogClose asChild>
