@@ -7,19 +7,18 @@ type Props = { track: Track };
 
 const RecentFavouriteListItem = ({ track }: Props) => {
   const { currentTrack, playTrack } = usePlayerContext();
-
   return (
     <div
       role="presentation"
       onClick={() => playTrack(track)}
       className={cn(
-        'size-30 flex shrink-0 grow-0 cursor-pointer flex-col space-y-1 rounded-md p-2 transition-colors duration-200',
+        'flex size-28 shrink-0 grow-0 cursor-pointer flex-col space-y-1 rounded-md p-2 pb-2 transition-colors duration-200',
         currentTrack?.id === track.id
           ? 'bg-gray-200/20'
           : 'hover:bg-gray-100/10'
       )}
     >
-      <div className="relative size-24">
+      <div className="relative size-20">
         <Image
           src={track.image}
           alt={track.title}
@@ -32,5 +31,4 @@ const RecentFavouriteListItem = ({ track }: Props) => {
     </div>
   );
 };
-
 export default RecentFavouriteListItem;
