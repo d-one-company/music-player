@@ -18,6 +18,7 @@ const TrendingTracks = ({ className }: Props) => {
       className={cn('scrollbar-sky flex flex-col overflow-y-scroll', className)}
     >
       {currentTracks
+        ?.slice(0, 15)
         ?.filter(
           track =>
             track.title.toLowerCase().includes(search) ||
