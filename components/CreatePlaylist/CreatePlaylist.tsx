@@ -26,13 +26,13 @@ const CreatePlaylist = () => {
   const [addedTracks, setAddedTracks] = useState<Track[]>([]);
   const [search, setSearch] = useState('');
 
-  const { addPlaylist } = useTrackStore();
+  const { playlists: storedPlaylists, addPlaylist } = useTrackStore();
 
   const handleCreatePlaylist = () => {
     addPlaylist({
       title: name,
       tracks: addedTracks,
-      id: playlists.length + 1,
+      id: [...playlists, ...storedPlaylists].length + 1,
       image:
         'https://utfs.io/f/e614b606-8a85-430a-87a3-fc836e92a428-p2gkcd.jpg',
     });
