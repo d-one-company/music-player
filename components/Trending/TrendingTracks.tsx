@@ -4,7 +4,6 @@ import { tracks } from '@/lib/tracks';
 import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import TrackItem from '../Track/TrackItem';
-import { usePathname } from 'next/navigation';
 
 type Props = {
   className?: string;
@@ -13,17 +12,10 @@ type Props = {
 const TrendingTracks = ({ className }: Props) => {
   const { currentPlaylist, search } = usePlayerContext();
   const currentTracks = currentPlaylist ? currentPlaylist?.tracks : tracks;
-  const pathname = usePathname();
 
   return (
     <div
-      className={cn(
-        'scrollbar-sky flex flex-col overflow-y-scroll',
-        pathname.includes('trending')
-          ? 'h-full'
-          : 'max-h-[200px] 2xl:max-h-[300px]',
-        className
-      )}
+      className={cn('scrollbar-sky flex flex-col overflow-y-scroll', className)}
     >
       {currentTracks
         ?.filter(
