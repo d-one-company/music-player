@@ -1,4 +1,5 @@
 import Sidebar from '@/components/Sidebar/Sidebar';
+import { Toaster } from '@/components/ui/sonner';
 import { PlayerProvider } from '@/providers/PlayerContext';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         <PlayerProvider>
           <div className="flex h-screen flex-wrap overflow-hidden">
             <Sidebar />
+            <Toaster />
             {children}
           </div>
         </PlayerProvider>

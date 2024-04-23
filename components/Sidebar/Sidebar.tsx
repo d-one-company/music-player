@@ -1,14 +1,7 @@
 import { TooltipProvider } from '../ui/tooltip';
 
-import {
-  Heart,
-  Home,
-  Music,
-  Plus,
-  Search,
-  Settings,
-  TrendingUp,
-} from 'lucide-react';
+import { Heart, Home, Music, Search, Settings, TrendingUp } from 'lucide-react';
+import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
 import SidebarItem from './SidebarItem';
 
 const Sidebar = () => {
@@ -29,7 +22,7 @@ const Sidebar = () => {
             label="Trending"
             href="/trending"
           />
-          <SidebarItem icon={<Plus />} label="Create Playlist" />
+          <CreatePlaylist />
           <SidebarItem
             className="mt-auto"
             icon={<Settings />}
