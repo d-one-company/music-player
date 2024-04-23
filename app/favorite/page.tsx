@@ -1,5 +1,4 @@
 import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar/Sidebar';
 import FavoriteTracks from './FavoriteTracks';
 import PlaylistBar from '@/components/PlaylistBar/PlaylistBar';
 
