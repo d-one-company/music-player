@@ -11,7 +11,7 @@ type Props = {
 
 const AddTracks = ({ search, addedTracks, setAddedTracks }: Props) => {
   return (
-    <div className="scrollbar-sky flex max-h-[650px] w-full flex-col overflow-y-auto">
+    <div className="scrollbar-sky flex w-full flex-col overflow-y-auto">
       {tracks
         .filter(track =>
           track.title.toLowerCase().includes(search.toLowerCase())

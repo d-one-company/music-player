@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -53,11 +52,11 @@ const CreatePlaylist = () => {
           <TooltipContent side="right">Create Playlist</TooltipContent>
         </Tooltip>
       </DialogTrigger>
-      <DialogContent className="flex flex-col">
+      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden">
         <DialogHeader>
           <DialogTitle>Create Playlist</DialogTitle>
         </DialogHeader>
-        <DialogDescription className="flex w-full flex-col gap-8">
+        <div className="flex w-full flex-col gap-7 overflow-hidden">
           <InfoHeader addedTracks={addedTracks} name={name} setName={setName} />
           <Input
             value={search}
@@ -83,7 +82,7 @@ const CreatePlaylist = () => {
               </Button>
             </DialogClose>
           </DialogFooter>
-        </DialogDescription>
+        </div>
       </DialogContent>
     </Dialog>
   );
