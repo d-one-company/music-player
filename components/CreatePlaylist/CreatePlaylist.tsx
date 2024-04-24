@@ -13,11 +13,13 @@ import {
 import { playlists } from '@/lib/playlists';
 import useTrackStore from '@/lib/store';
 import { Track } from '@/types';
+import { Tooltip } from '@radix-ui/react-tooltip';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import AddTracks from './AddTracks';
 import InfoHeader from './InfoHeader';
 
@@ -44,7 +46,12 @@ const CreatePlaylist = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Plus className="flex size-6 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground" />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Plus className="flex size-6 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground" />
+          </TooltipTrigger>
+          <TooltipContent side="right">Create Playlist</TooltipContent>
+        </Tooltip>
       </DialogTrigger>
       <DialogContent className="flex flex-col">
         <DialogHeader>

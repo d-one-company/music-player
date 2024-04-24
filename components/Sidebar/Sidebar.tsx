@@ -10,7 +10,7 @@ const Sidebar = () => {
       <aside className="hidden flex-col bg-muted/50 shadow-lg sm:flex">
         <nav className="flex flex-1 flex-col items-center gap-4 px-4 sm:pb-4 sm:pt-9">
           <SidebarItem
-            className="rounded-full bg-sky-500 text-white md:h-9 md:w-9"
+            className="rounded-full bg-sky-500 text-white md:size-9"
             icon={<Music />}
             label="Music"
           />

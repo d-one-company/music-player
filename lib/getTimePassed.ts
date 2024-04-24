@@ -2,13 +2,12 @@ export const getTimePassed = (date: Date | string) => {
   const currentDate = new Date();
   const parsedDate = typeof date === 'string' ? new Date(date) : date;
 
-  if (isNaN(parsedDate.getTime())) {
-    return 'Invalid date';
-  }
+  if (isNaN(parsedDate.getTime())) return 'Invalid date';
 
   const diffInMilliseconds = currentDate.getTime() - parsedDate.getTime();
 
   const seconds = Math.floor(diffInMilliseconds / 1000);
+
   if (seconds < 60)
     return seconds > 0 ? pluralize(seconds, 'second') : 'Just now';
 

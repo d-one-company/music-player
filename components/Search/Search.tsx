@@ -14,15 +14,14 @@ const Search = () => {
 
   useEffect(() => {
     if (!inputRef.current) return;
+
     setSearch('');
-    if (pathname === '/search') {
-      inputRef.current.focus();
-    }
+    if (pathname === '/search') inputRef.current.focus();
   }, [pathname, setSearch]);
 
   return (
     <div className="relative flex flex-1 items-center gap-2">
-      <SearchIcon className="absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground" />
+      <SearchIcon className="absolute left-3.5 top-3.5 size-4 text-muted-foreground" />
       <Input
         value={search}
         ref={inputRef}

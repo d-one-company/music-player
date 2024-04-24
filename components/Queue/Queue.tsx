@@ -1,17 +1,11 @@
-'use client';
-
 import { tracks } from '@/lib/tracks';
-import { usePlayerContext } from '@/providers/PlayerContext';
 import QueuedTrack from './QueuedTrack';
 
 const Queue = () => {
-  const { currentPlaylist } = usePlayerContext();
   return (
     <>
       <div className="flex w-full px-4 pb-2">
-        <p className="text-left text-lg font-semibold">
-          {currentPlaylist ? `Next on ${currentPlaylist.title}` : 'Queue'}
-        </p>
+        <p className="text-left text-lg font-semibold">Queue</p>
       </div>
       <div className="scrollbar-sky w-full flex-1 space-y-2 overflow-y-auto px-4 pt-2">
         {tracks?.map(track => <QueuedTrack track={track} key={track.id} />)}

@@ -7,30 +7,27 @@ import { ReactNode, createContext, useContext, useState } from 'react';
 interface PlayerContextType {
   currentTrack: Track | undefined;
   isPlaying: boolean;
-  currentPlaylist: Playlist | undefined;
-  setCurrentPlaylist: (playlist: Playlist) => void;
+  search: string;
   setCurrentTrack: (track: Track) => void;
-  playTrack: (track: Track) => void;
-  togglePlay: () => void;
+  handlePlayTrack: (track: Track) => void;
+  handleTogglePlay: () => void;
   handlePlayNext: () => void;
   handlePlayPrev: () => void;
-  setCurrentAndPlayPlaylist: (playlist: Playlist) => void;
-  search: string;
+  handleSetCurrentAndPlayPlaylist: (playlist: Playlist) => void;
   setSearch: (search: string) => void;
 }
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
+
 export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
-  const [currentPlaylist, setCurrentPlaylist] = useState<Playlist>();
-
   const [search, setSearch] = useState('');
 
-  const togglePlay = () => {
+  const handleTogglePlay = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const playTrack = (track: Track) => {
+  const handlePlayTrack = (track: Track) => {
     setCurrentTrack(track);
     setIsPlaying(true);
   };
@@ -39,6 +36,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const currentTrackIndex = tracks.findIndex(
       track => track.url === currentTrack?.url
     );
+
     const nextTrackIndex = (currentTrackIndex + 1) % tracks.length;
     const nextTrack = tracks[nextTrackIndex];
 
@@ -51,8 +49,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const currentTrackIndex = tracks.findIndex(
       track => track.url === currentTrack?.url
     );
+
     const prevTrackIndex =
       currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+
     const prevTrack = tracks[prevTrackIndex];
 
     setCurrentTrack(prevTrack);
@@ -60,8 +60,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if (!isPlaying) setIsPlaying(true);
   };
 
-  const setCurrentAndPlayPlaylist = (playlist: Playlist) => {
-    setCurrentPlaylist(playlist);
+  const handleSetCurrentAndPlayPlaylist = (playlist: Playlist) => {
     if (!!playlist?.tracks?.length) {
       setCurrentTrack(playlist.tracks[0]);
       setIsPlaying(true);
@@ -73,15 +72,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       value={{
         currentTrack,
         isPlaying,
-        currentPlaylist,
-        setCurrentPlaylist,
-        playTrack,
+        search,
+        handlePlayTrack,
         setCurrentTrack,
-        togglePlay,
+        handleTogglePlay,
         handlePlayNext,
         handlePlayPrev,
-        setCurrentAndPlayPlaylist,
-        search,
+        handleSetCurrentAndPlayPlaylist,
         setSearch,
       }}
     >

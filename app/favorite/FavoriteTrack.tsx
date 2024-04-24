@@ -1,10 +1,10 @@
-import FavoriteIcon from '@/components/icons/FavoriteIcon';
 import { Toggle } from '@/components/ui/toggle';
 import { getTimePassed } from '@/lib/getTimePassed';
 import useTrackStore from '@/lib/store';
 import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Track } from '@/types';
+import { Heart } from 'lucide-react';
 import Image from 'next/image';
 
 type FavoriteTrackProps = {
@@ -14,7 +14,7 @@ type FavoriteTrackProps = {
 
 const FavoriteTrack = ({ track, dateAdded }: FavoriteTrackProps) => {
   const { toggleFavorite, favoriteTracks } = useTrackStore();
-  const { currentTrack, playTrack } = usePlayerContext();
+  const { currentTrack, handlePlayTrack } = usePlayerContext();
 
   return (
     <div
@@ -25,7 +25,7 @@ const FavoriteTrack = ({ track, dateAdded }: FavoriteTrackProps) => {
           : 'hover:bg-gray-100/10'
       )}
       role="presentation"
-      onClick={() => playTrack(track)}
+      onClick={() => handlePlayTrack(track)}
     >
       <div className="col-span-3 flex items-center gap-4">
         <Image
@@ -56,7 +56,7 @@ const FavoriteTrack = ({ track, dateAdded }: FavoriteTrackProps) => {
           onPressedChange={() => toggleFavorite(track.id)}
           onClick={e => e.stopPropagation()}
         >
-          <FavoriteIcon />
+          <Heart />
         </Toggle>
         <span className="text-sm text-muted-foreground">{track.duration}</span>
       </div>

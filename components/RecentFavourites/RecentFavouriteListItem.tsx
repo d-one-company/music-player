@@ -6,11 +6,11 @@ import Image from 'next/image';
 type Props = { track: Track };
 
 const RecentFavouriteListItem = ({ track }: Props) => {
-  const { currentTrack, playTrack } = usePlayerContext();
+  const { currentTrack, handlePlayTrack } = usePlayerContext();
   return (
     <div
       role="presentation"
-      onClick={() => playTrack(track)}
+      onClick={() => handlePlayTrack(track)}
       className={cn(
         'flex size-28 shrink-0 grow-0 cursor-pointer flex-col space-y-1 rounded-md p-2 pb-2 transition-colors duration-200',
         currentTrack?.id === track.id

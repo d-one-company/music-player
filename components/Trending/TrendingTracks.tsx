@@ -5,19 +5,16 @@ import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import TrackItem from '../Track/TrackItem';
 
-type Props = {
-  className?: string;
-};
+type Props = { className?: string };
 
 const TrendingTracks = ({ className }: Props) => {
-  const { currentPlaylist, search } = usePlayerContext();
-  const currentTracks = currentPlaylist ? currentPlaylist?.tracks : tracks;
+  const { search } = usePlayerContext();
 
   return (
     <div
       className={cn('scrollbar-sky flex flex-col overflow-y-scroll', className)}
     >
-      {currentTracks
+      {tracks
         ?.slice(0, 15)
         ?.filter(
           track =>

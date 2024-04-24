@@ -4,11 +4,11 @@ import { devtools, persist } from 'zustand/middleware';
 
 export interface Store {
   queuedTrackIds: number[];
+  playlists: Playlist[];
+  favoriteTracks: { id: number; timestamp: number }[];
   queueTrack: (trackId: number) => void;
   dequeueTrack: (trackId: number) => void;
-  favoriteTracks: { id: number; timestamp: number }[];
   toggleFavorite: (trackId: number) => void;
-  playlists: Playlist[];
   addPlaylist: (playlist: Playlist) => void;
 }
 
