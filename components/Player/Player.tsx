@@ -3,7 +3,6 @@
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { ArrowLeftToLine, ArrowRightToLine, Pause, Play } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 
@@ -14,39 +13,15 @@ const Player = () => {
     handlePlayNext,
     handlePlayPrev,
     currentTrack,
+    currentTime,
+    duration,
+    changeTime,
   } = usePlayerContext();
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [currentTime, setCurrentTime] = useState<number | undefined>(0);
-
-  useEffect(() => {
-    if (audioRef.current)
-      isPlaying ? audioRef.current.play() : audioRef.current.pause();
-  }, [isPlaying, currentTrack]);
-
-  useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.addEventListener('timeupdate', () => {
-      setCurrentTime(audioRef.current?.currentTime);
-    });
-  }, [audioRef.current?.currentTime]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      isPlaying ? audioRef.current.play() : audioRef.current.pause();
-      audioRef.current.volume = 0.1;
-    }
-  }, [isPlaying, currentTrack]);
 
   if (!currentTrack) return null;
 
   return (
     <div className="mt-10 h-64 w-full overflow-hidden rounded-md px-5 grid-stack">
-      <audio
-        autoPlay
-        ref={audioRef}
-        src={currentTrack?.url}
-        onEnded={handlePlayNext}
-      />
       <div className="relative">
         <Image
           fill
@@ -90,10 +65,8 @@ const Player = () => {
             <div className="px-4">
               <Slider
                 defaultValue={[currentTime || 0]}
-                max={audioRef.current?.duration}
-                onValueChange={value => {
-                  if (audioRef.current) audioRef.current.currentTime = value[0];
-                }}
+                max={duration}
+                onValueChange={value => changeTime(value[0])}
                 value={[currentTime || 0]}
                 step={1}
               />

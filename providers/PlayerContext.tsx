@@ -2,10 +2,19 @@
 
 import { tracks } from '@/lib/tracks';
 import { Playlist, Track } from '@/types';
-import { ReactNode, createContext, useContext, useState } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 interface PlayerContextType {
-  currentTrack: Track | undefined;
+  currentTrack?: Track;
+  currentTime?: number;
+  duration?: number;
   isPlaying: boolean;
   search: string;
   setCurrentTrack: (track: Track) => void;
@@ -15,6 +24,7 @@ interface PlayerContextType {
   handlePlayPrev: () => void;
   handleSetCurrentAndPlayPlaylist: (playlist: Playlist) => void;
   setSearch: (search: string) => void;
+  changeTime: (time: number) => void;
 }
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
@@ -22,6 +32,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
   const [search, setSearch] = useState('');
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [currentTime, setCurrentTime] = useState<number | undefined>(0);
+
+  const duration = audioRef.current?.duration;
 
   const handleTogglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -29,6 +43,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
   const handlePlayTrack = (track: Track) => {
     setCurrentTrack(track);
+    setCurrentTime(0);
     setIsPlaying(true);
   };
 
@@ -41,6 +56,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const nextTrack = tracks[nextTrackIndex];
 
     setCurrentTrack(nextTrack);
+    setCurrentTime(0);
 
     if (!isPlaying) setIsPlaying(true);
   };
@@ -56,6 +72,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const prevTrack = tracks[prevTrackIndex];
 
     setCurrentTrack(prevTrack);
+    setCurrentTime(0);
 
     if (!isPlaying) setIsPlaying(true);
   };
@@ -67,10 +84,32 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.addEventListener('timeupdate', () => {
+      setCurrentTime(audioRef.current?.currentTime);
+    });
+  }, [audioRef.current?.currentTime]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      isPlaying ? audioRef.current.play() : audioRef.current.pause();
+      audioRef.current.volume = 0.1;
+    }
+  }, [isPlaying, currentTrack]);
+
+  const changeTime = (time: number) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+    }
+  };
+
   return (
     <PlayerContext.Provider
       value={{
         currentTrack,
+        currentTime,
+        duration,
         isPlaying,
         search,
         handlePlayTrack,
@@ -80,9 +119,17 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         handlePlayPrev,
         handleSetCurrentAndPlayPlaylist,
         setSearch,
+        changeTime,
       }}
     >
       {children}
+      <audio
+        className="hidden"
+        autoPlay
+        ref={audioRef}
+        src={currentTrack?.url}
+        onEnded={handlePlayNext}
+      />
     </PlayerContext.Provider>
   );
 }
