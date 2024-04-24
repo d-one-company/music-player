@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import { Track } from '@/types';
@@ -8,12 +10,12 @@ import { Button } from '../ui/button';
 type Props = { track: Track };
 
 const QueuedTrack = ({ track }: Props) => {
-  const { currentTrack, playTrack } = usePlayerContext();
+  const { currentTrack, handlePlayTrack } = usePlayerContext();
 
   return (
     <div
       role="presentation"
-      onClick={() => playTrack(track)}
+      onClick={() => handlePlayTrack(track)}
       className={cn(
         'flex max-w-full cursor-pointer items-center justify-between rounded-md py-2 pl-3 transition-colors duration-200',
         currentTrack?.id === track.id

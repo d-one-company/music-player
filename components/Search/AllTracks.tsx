@@ -1,11 +1,9 @@
 'use client';
 
+import { getSearchedTracks } from '@/lib/searchUtils';
 import { tracks } from '@/lib/tracks';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import TrackItem from '../Track/TrackItem';
-import { useState } from 'react';
-import type { Track } from '@/types';
-import { getSearchedTracks } from '@/lib/searchUtils';
 
 const AllTracks = () => {
   const { search } = usePlayerContext();

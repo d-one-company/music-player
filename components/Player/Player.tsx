@@ -10,7 +10,7 @@ import { Slider } from '../ui/slider';
 const Player = () => {
   const {
     isPlaying,
-    togglePlay,
+    handleTogglePlay,
     handlePlayNext,
     handlePlayPrev,
     currentTrack,
@@ -75,7 +75,7 @@ const Player = () => {
               <Button
                 variant="ghost"
                 className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
-                onClick={togglePlay}
+                onClick={handleTogglePlay}
               >
                 {isPlaying ? <Pause /> : <Play />}
               </Button>

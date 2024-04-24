@@ -1,6 +1,5 @@
 'use client';
 
-import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Playlist } from '@/types';
 import { Music2 } from 'lucide-react';
 import Image from 'next/image';
@@ -11,9 +10,6 @@ type Props = { playlist: Playlist };
 
 const PlaylistItem = ({ playlist }: Props) => {
   const router = useRouter();
-
-  const { currentPlaylist } = usePlayerContext();
-  if (currentPlaylist?.id === playlist.id) return null;
 
   return (
     <div

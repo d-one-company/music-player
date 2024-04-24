@@ -10,7 +10,7 @@ import { Slider } from '../ui/slider';
 const LargePlayer = () => {
   const {
     isPlaying,
-    togglePlay,
+    handleTogglePlay,
     handlePlayNext,
     handlePlayPrev,
     currentTrack,
@@ -25,12 +25,14 @@ const LargePlayer = () => {
 
   useEffect(() => {
     if (!audioRef.current) return;
+
     const handler = () => setCurrentTime(audioRef.current?.currentTime);
+
     audioRef.current.addEventListener('timeupdate', handler);
+
     return () => {
-      if (audioRef.current) {
+      if (audioRef.current)
         audioRef.current.removeEventListener('timeupdate', handler);
-      }
     };
   }, [audioRef.current]);
 
@@ -74,7 +76,7 @@ const LargePlayer = () => {
         <Button variant="ghost" onClick={handlePlayPrev}>
           <ArrowLeftToLine />
         </Button>
-        <Button variant="ghost" onClick={togglePlay}>
+        <Button variant="ghost" onClick={handleTogglePlay}>
           {isPlaying ? <Pause /> : <Play />}
         </Button>
         <Button variant="ghost" onClick={handlePlayNext}>

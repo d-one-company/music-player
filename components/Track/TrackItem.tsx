@@ -4,14 +4,14 @@ import useTrackStore from '@/lib/store';
 import { cn } from '@/lib/utils';
 import { usePlayerContext } from '@/providers/PlayerContext';
 import type { Track } from '@/types';
+import { Heart } from 'lucide-react';
 import Image from 'next/image';
-import FavoriteIcon from '../icons/FavoriteIcon';
 import { Toggle } from '../ui/toggle';
 
 type TrackItemProps = { track: Track };
 
 const TrackItem = ({ track }: TrackItemProps) => {
-  const { currentTrack, playTrack } = usePlayerContext();
+  const { currentTrack, handlePlayTrack } = usePlayerContext();
   const { favoriteTracks, toggleFavorite } = useTrackStore();
 
   return (
@@ -23,7 +23,7 @@ const TrackItem = ({ track }: TrackItemProps) => {
           : 'hover:bg-gray-100/10'
       )}
       role="presentation"
-      onClick={() => playTrack(track)}
+      onClick={() => handlePlayTrack(track)}
     >
       <div className="flex flex-shrink-0 flex-grow items-center justify-start gap-4">
         <Image
@@ -60,7 +60,7 @@ const TrackItem = ({ track }: TrackItemProps) => {
             onPressedChange={() => toggleFavorite(track.id)}
             onClick={e => e.stopPropagation()}
           >
-            <FavoriteIcon />
+            <Heart />
           </Toggle>
         </div>
       </div>

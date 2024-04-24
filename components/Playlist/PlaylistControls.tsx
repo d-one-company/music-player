@@ -7,7 +7,7 @@ import { Input } from '../ui/input';
 type Props = { playlist: Playlist; setSearch: (value: string) => void };
 
 const PlaylistControls = ({ playlist, setSearch }: Props) => {
-  const { isPlaying, togglePlay, setCurrentAndPlayPlaylist } =
+  const { isPlaying, handleTogglePlay, handleSetCurrentAndPlayPlaylist } =
     usePlayerContext();
 
   return (
@@ -17,9 +17,9 @@ const PlaylistControls = ({ playlist, setSearch }: Props) => {
           variant="ghost"
           className="h-10 w-10 rounded-full p-1 hover:bg-muted-foreground/20"
           onClick={() => {
-            togglePlay();
+            handleTogglePlay();
             if (isPlaying) return;
-            setCurrentAndPlayPlaylist(playlist);
+            handleSetCurrentAndPlayPlaylist(playlist);
           }}
         >
           {isPlaying ? <Pause /> : <Play />}

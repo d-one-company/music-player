@@ -23,7 +23,7 @@ const SidebarItem = ({ className, icon, label, href = '#' }: Props) => {
         <Link
           href={href}
           className={cn(
-            'flex h-9 w-9 items-center justify-center md:h-8 md:w-8',
+            'flex size-9 items-center justify-center md:size-8',
             'rounded-lg text-muted-foreground transition-colors hover:text-foreground',
             selected && 'text-accent-foreground',
             className
