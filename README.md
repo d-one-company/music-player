@@ -25,6 +25,10 @@ Music Player is an open-source music application that allows users to listen to 
 
 ![Playlist Screen](https://utfs.io/f/18eb3cd2-1407-404a-8245-930a57fbc1e0-fhm5bw.39.49.jpg)
 
+### Search Screen
+
+![Seach Screen](https://utfs.io/f/31bae30c-f74f-4cea-868f-c0192f69d8c2-fhm5bw.57.28.jpg)
+
 ## Technologies Used
 
 - Next JS
@@ -50,15 +54,6 @@ To get a local copy up and running follow these simple steps:
     pnpm dev
     ```
 
-Usage
-To use the music player, simply open the ﻿index.html in your browser and use the interface buttons to play or switch songs.
-Contributing
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-To contribute: 1. Fork the Project 2. Create your Feature Branch (﻿git checkout -b feature/AmazingFeature) 3. Commit your Changes (﻿git commit -m 'Add some AmazingFeature') 4. Push to the Branch (﻿git push origin feature/AmazingFeature) 5. Open a Pull Request
-License
-Distributed under the MIT License. See ﻿LICENSE for more information.
-Contact
-Your Name - your-email@example.com
-Project Link: https://github.com/yourusername/mymusicplayer
+## Usage
 
-Adjust this template accordingly based on your project's details and specific needs. This should make your app approachable and easier to use or contribute to by the community.
+To use the application, simply navigate to the `/` route in your browser.
