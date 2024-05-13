@@ -39,11 +39,15 @@ To get a local copy up and running follow these simple steps:
 
 1.  Clone the repo
     ```bash
-    git clone https://github.com/yourusername/mymusicplayer.git
+    git clone https://github.com/d-one-company/music-player.git
     ```
-        2.	Install NPM packages
+2.  Install packages
     ```bash
     pnpm install
+    ```
+3.  Start the development server
+    ```bash
+    pnpm dev
     ```
 
 Usage
