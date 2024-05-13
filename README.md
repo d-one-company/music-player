@@ -85,3 +85,7 @@ The Trending page displays the most popular tracks based on their popularity and
 #### Favorites Page
 
 The Favorites page displays your recently favorited tracks.
+
+## License
+
+This project is licensed under the MIT License
