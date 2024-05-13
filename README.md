@@ -4,6 +4,8 @@
 
 Music Player is an open-source music application that allows users to listen to a selection of songs. It's built using Next JS and React, and it's designed to be a user-friendly interface for music lovers.
 
+App is live on this link: https://music-player.vercel.app/
+
 ## Features
 
 - Authentication
