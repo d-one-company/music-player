@@ -30,7 +30,7 @@ Music Player is an open-source music application that allows users to listen to 
 
 ### Search
 
-![Seach Screen](https://utfs.io/f/31bae30c-f74f-4cea-868f-c0192f69d8c2-fhm5bw.57.28.jpg)
+![Search Screen](https://utfs.io/f/31bae30c-f74f-4cea-868f-c0192f69d8c2-fhm5bw.57.28.jpg)
 
 ### Trending
 
@@ -93,7 +93,3 @@ The Favorites page displays your recently favorited tracks.
 #### Creating Playlist
 
 To create a new playlist, click the "+" icon to open a modal. In this modal, you'll find an input field where you can name your playlist. Below the input, there's a list of all available tracks which you can search through. Select the tracks you want to add to your playlist. Once you've chosen your tracks, click 'Create Playlist'. After creation, you'll be redirected to the newly created playlist page where you can view or modify the playlist.
-
-## License
-
-This project is licensed under the MIT License.
