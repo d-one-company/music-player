@@ -6,13 +6,14 @@ Music Player is an open-source music application that allows users to listen to 
 
 ## Features
 
-- Play/Pause Songs
-- Next/Previous song navigation
+- Authentication
+- Play/Pause Tracks
+- Next/Previous track navigation
 - Volume control
-- Search for songs
-- Queue songs
+- Search for tracks
+- Queue tracks
 - Playlists
-- Like/Dislike songs
+- Like/Dislike tracks
 
 ## Screenshots
 
@@ -26,20 +27,24 @@ Music Player is an open-source music application that allows users to listen to 
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
+- Next JS
+- React
+- TypeScript
+- Tailwind CSS
+- Next Auth
 
 ## Installation
 
 To get a local copy up and running follow these simple steps:
 
-1. Clone the repo
-   ```bash
-   git clone https://github.com/yourusername/mymusicplayer.git
-   	2.	Install NPM packages
-   npm install
-   ```
+1.  Clone the repo
+    ```bash
+    git clone https://github.com/yourusername/mymusicplayer.git
+    ```
+        2.	Install NPM packages
+    ```bash
+    pnpm install
+    ```
 
 Usage
 To use the music player, simply open the ﻿index.html in your browser and use the interface buttons to play or switch songs.
