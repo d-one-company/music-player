@@ -64,10 +64,24 @@ To get a local copy up and running follow these simple steps:
 
 ## Usage
 
-To use the application, simply navigate to the `/` route in your browser.
+To use the application, navigate to the `/` route in your browser.
 
-### Home Page
+#### Home Page
 
 Here you'll find your playlists displayed, along with additional sections depending on your interaction. If no specific playlist is selected, you'll see trending songs; if a playlist is selected, it will display tracks in that playlist. The page also shows your recently favorited tracks and your current queue with a small player. Clicking any playlist takes you to its detailed page, and selecting any song from a playlist will play it in the player. Each song's entry includes the artist name, number of listens, duration, and a like/unlike button. Clicking this button will add the song to your list of recently favorited tracks.
 
-### Playlist Page
+#### Playlist Page
+
+On the Playlist page, you'll see the playlist's cover, name, track count, and total length. You can play the playlist, search for songs within it, and use a large player at the bottom. Each song displays details similar to those on the home page, including artist, listens, duration, and like/unlike options.
+
+#### Search Page
+
+The Search page allows users to find tracks by searching for album, track, or artist names.
+
+#### Trending Page
+
+The Trending page displays the most popular songs based on their popularity and recent listens.
+
+#### Favorites Page
+
+The Favorites page displays your recently favorited tracks.
