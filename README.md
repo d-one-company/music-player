@@ -36,6 +36,10 @@ Music Player is an open-source music application that allows users to listen to 
 
 ![Trending Screen](https://utfs.io/f/230d9e4f-1851-46f5-94af-c1e7019927f7-fhm5bv.02.10.jpg)
 
+### Creating Playlist
+
+![Creating Playlist](https://utfs.io/f/fc89a9a9-dc15-4994-aab5-5f3b6b46c58b-fhm5bv.45.53.jpg)
+
 ## Technologies Used
 
 - Next.js
