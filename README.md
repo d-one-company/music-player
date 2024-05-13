@@ -16,7 +16,13 @@ Music Player is an open-source music application that allows users to listen to 
 
 ## Screenshots
 
-![Main Interface](https://utfs.io/f/18eb3cd2-1407-404a-8245-930a57fbc1e0-fhm5bw.39.49.jpg)
+### Main Screen
+
+![Main Screen](https://utfs.io/f/33728b94-5bcc-4f7d-aa8f-69074bde38cd-fhm5bw.43.19.jpg)
+
+### Playlist Screen
+
+![Playlist Screen](https://utfs.io/f/18eb3cd2-1407-404a-8245-930a57fbc1e0-fhm5bw.39.49.jpg)
 
 ## Technologies Used
 
