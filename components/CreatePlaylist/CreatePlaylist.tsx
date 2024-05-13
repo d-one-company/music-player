@@ -14,6 +14,7 @@ import useTrackStore from '@/lib/store';
 import { Track } from '@/types';
 import { Tooltip } from '@radix-ui/react-tooltip';
 import { Plus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Button } from '../ui/button';
@@ -27,6 +28,8 @@ const CreatePlaylist = () => {
   const [addedTracks, setAddedTracks] = useState<Track[]>([]);
   const [search, setSearch] = useState('');
 
+  const router = useRouter();
+
   const { playlists: storedPlaylists, addPlaylist } = useTrackStore();
 
   const handleCreatePlaylist = () => {
@@ -38,6 +41,7 @@ const CreatePlaylist = () => {
         'https://utfs.io/f/e614b606-8a85-430a-87a3-fc836e92a428-p2gkcd.jpg',
     });
     toast('Playlist has been created.');
+    router.push(`/playlist/${[...playlists, ...storedPlaylists].length + 1}`);
     setName('');
     setAddedTracks([]);
   };
