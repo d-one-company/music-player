@@ -1,11 +1,10 @@
 'use client';
 
-import { tracks } from '@/lib/tracks';
 import useTrackStore from '@/lib/store';
-import FavoriteTrack from './FavoriteTrack';
-import type { Track } from '@/types';
+import { tracks } from '@/lib/tracks';
 import { usePlayerContext } from '@/providers/PlayerContext';
-import { useMemo } from 'react';
+import type { Track } from '@/types';
+import FavoriteTrack from './FavoriteTrack';
 
 const FavoriteTracks = () => {
   const { favoriteTracks: favouriteTracks_ } = useTrackStore();
@@ -17,7 +16,7 @@ const FavoriteTracks = () => {
     });
 
   return (
-    <div className="flex h-full w-full flex-col scroll-shadow-size-5">
+    <div className="scrollbar-sky flex h-full w-full flex-col overflow-y-scroll pb-5">
       {favoriteTracks
         .filter(
           track =>
