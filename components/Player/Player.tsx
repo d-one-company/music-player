@@ -31,7 +31,7 @@ const Player = () => {
         />
       </div>
 
-      <div className="mt-auto flex px-2 pb-2">
+      <div className="z-10 mt-auto flex px-2 pb-2">
         <div className="flex h-full w-full flex-col rounded-sm bg-muted/60 backdrop-blur-lg">
           <div className="flex flex-col justify-center space-y-2.5 py-4 text-center text-sm">
             <div className="flex flex-col space-y-0.5">

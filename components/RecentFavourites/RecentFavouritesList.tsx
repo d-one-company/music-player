@@ -10,7 +10,7 @@ const RecentFavouritesList = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-3 overflow-x-auto">
+      <div className="flex items-center gap-3 overflow-x-auto pb-5">
         {favoriteTracks
           .sort((a, b) => b.timestamp - a.timestamp)
           .map(ft => (
