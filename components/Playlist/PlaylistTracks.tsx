@@ -8,7 +8,7 @@ type Props = {
 
 const PlaylistTracks = ({ tracks, search }: Props) => {
   return (
-    <div className="scrollbar-sky flex h-screen w-full flex-col overflow-y-scroll pb-[540px]">
+    <div className="flex h-full w-full flex-col overflow-y-scroll">
       {tracks
         .filter(
           track =>

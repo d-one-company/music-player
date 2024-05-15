@@ -66,15 +66,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 .scrollbar-sky::-webkit-scrollbar {
   width: 2px;
   height: 2px;
@@ -86,4 +77,13 @@
 
 .scrollbar-sky::-webkit-scrollbar-track {
   @apply bg-muted/60;
+}
+
+@layer base {
+  * {
+    @apply scrollbar-sky border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

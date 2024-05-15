@@ -1,5 +1,7 @@
+import Banner from '@/components/Banner';
 import Sidebar from '@/components/Sidebar/Sidebar';
 import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 import { PlayerProvider } from '@/providers/PlayerContext';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -16,9 +18,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          inter.className,
+          'grid h-screen grid-flow-row grid-rows-body overflow-hidden'
+        )}
+      >
+        <Banner />
         <PlayerProvider>
-          <div className="flex h-screen flex-wrap overflow-hidden">
+          <div className="flex flex-wrap overflow-hidden">
             <Sidebar />
             <Toaster />
             {children}

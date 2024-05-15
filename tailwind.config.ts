@@ -74,6 +74,7 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       gridTemplateRows: {
+        body: '45px 1fr',
         content: '2.75rem 1fr',
       },
     },
