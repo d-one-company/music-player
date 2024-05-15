@@ -4,9 +4,9 @@ import TrendingTracks from './TrendingTracks';
 
 const Trending = () => {
   return (
-    <div className="flex w-full flex-col space-y-2">
+    <div className="flex w-full flex-1 flex-col space-y-2 overflow-hidden">
       <p className="text-lg font-semibold">Trending Right Now</p>
-      <TrendingTracks className="max-h-[150px] 2xl:max-h-[300px]" />
+      <TrendingTracks className="flex-1" />
     </div>
   );
 };
