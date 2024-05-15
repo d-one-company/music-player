@@ -14,16 +14,21 @@ const nextConfig = {
     });
     return config;
   },
-  // ! Remove this when we actually get the images from the server.
-  images: {
-    remotePatterns: [
+
+  async rewrites() {
+    return [
       {
-        protocol: 'https',
-        hostname: '**.*',
-        port: '',
+        source: '/ingest/static/:path*',
+        destination: 'https://eu-assets.i.posthog.com/static/:path*',
       },
-    ],
+      {
+        source: '/ingest/:path*',
+        destination: 'https://eu.i.posthog.com/:path*',
+      },
+    ];
   },
+
+  images: { remotePatterns: [{ protocol: 'https', hostname: 'utfs.io' }] },
 };
 
 export default nextConfig;
