@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -5,6 +6,7 @@ import type { PropsWithChildren } from 'react';
 
 import Sidebar from '@/components/Sidebar/Sidebar';
 import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 import { PlayerProvider } from '@/providers/PlayerContext';
 
 import PostHogProvider from '@/providers/PostHogProvider';
@@ -24,10 +26,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          inter.className,
+          'grid h-screen grid-flow-row grid-rows-body overflow-hidden'
+        )}
+      >
+        <Banner />
         <PostHogProvider>
           <PlayerProvider>
-            <div className="flex h-screen flex-wrap overflow-hidden">
+            <div className="flex flex-wrap overflow-hidden">
               <PostHogPageView />
               <Sidebar />
               <Toaster />

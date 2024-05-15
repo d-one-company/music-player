@@ -15,7 +15,7 @@ const PlaylistItem = ({ playlist }: Props) => {
     <div
       role="presentation"
       onClick={() => router.push(`/playlist/${playlist.id}`)}
-      className="group relative min-h-32 w-44 shrink-0 cursor-pointer"
+      className="group relative min-h-28 w-44 shrink-0 cursor-pointer"
     >
       <Image
         fill

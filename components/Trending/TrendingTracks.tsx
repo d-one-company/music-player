@@ -11,9 +11,7 @@ const TrendingTracks = ({ className }: Props) => {
   const { search } = usePlayerContext();
 
   return (
-    <div
-      className={cn('scrollbar-sky flex flex-col overflow-y-scroll', className)}
-    >
+    <div className={cn('flex flex-col overflow-y-scroll', className)}>
       {tracks
         ?.slice(0, 15)
         ?.filter(

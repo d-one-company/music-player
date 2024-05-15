@@ -16,7 +16,7 @@ const FavoriteTracks = () => {
     });
 
   return (
-    <div className="scrollbar-sky flex h-full w-full flex-col overflow-y-scroll pb-5">
+    <div className="flex w-full flex-col overflow-y-scroll py-5">
       {favoriteTracks
         .filter(
           track =>
