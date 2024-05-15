@@ -21,6 +21,7 @@ const Page = ({ params }: Props) => {
   const playlist = [...playlists, ...storedPlaylists].find(
     pl => pl.id === Number(params.id)
   );
+
   if (!playlist) return null;
 
   const playlistTracks = playlist?.tracks;
